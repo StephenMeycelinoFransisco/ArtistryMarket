@@ -4,7 +4,7 @@ export default function Highlight() {
   return (
     <div className="w-full rounded-2xl bg-black-secondary">
       <img
-        className="object-cover w-full rounded-t-2xl h-[12.875rem] md:h-[13.813rem] xl:h-[25.063rem]"
+        className="object-cover object-center w-full rounded-t-2xl h-52 md:h-56 lg:h-80"
         src="https://s3-alpha-sig.figma.com/img/8ac9/e0e3/bcf2d5507a81254146143702cd71f923?Expires=1698019200&Signature=bY9aqeO0KzcVCmAgeBXk3j~dYottBB1BWN6lpk8Mbm7XX6YcxnEevhZAFD-HhE3bIqtaC1T9G0BAzaL-Z6I3LEVsluJti8HrwEa6KRl003gSHM4BO6twjLdVVtrxzXWCMQ7R5dQ5Llr~R5TxrA8CL~H8ZPRGjcDNw54rK6i~l-9izFisf4laW9u9UIQqKOJki~7ZP2rn79xjzxXTnM4u6yiPErigo4UkOvv8jjnMNX-NzY9on4ngNBWHtyAJ5kFgpInWyS8SvwcSYzUnj53X9HZ5L4LZ2LvXOZcFDuR4errkKFfnnPMCBOCTGnr0oaS3WONkDcgUMzuD1x-kX7MpDA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
         alt="image"
       />
@@ -20,9 +20,7 @@ export default function Highlight() {
               className="rounded-full"
             />
           </div>
-          <div className="">
-            <p className="font-workSans text-[1rem] leading-[140%]">Animakid</p>
-          </div>
+          <p className="font-workSans text-base leading-[140%]">Animakid</p>
         </caption>
       </div>
     </div>
