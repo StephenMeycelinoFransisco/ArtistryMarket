@@ -2,11 +2,14 @@ import React from 'react'
 
 export default function Tab() {
   return (
-
-	<section className='flex gap-5 justify-center text-base leading-5 font-semibold capitalize text-center text-gray border-t-gray'>
-		<h3 className='hover:border-b-2 py-4 text-gray'>Created</h3>
-		<h3 className='hover:border-b-2 py-4 text-gray'>Owned</h3>
-		<h3 className='hover:border-b-2 py-4 text-gray'>Collection</h3>
-	</section>
+	<>
+		<section className='mt-10 border-t border-t-gray'>
+			<div className="grid grid-cols-3 text-center text-base capitalize text-gray leading-6 font-semibold">
+				<div className="active:text-white active:border-b-2 active:border-b-gray py-5">Created</div>
+				<div className="active:text-white active:border-b-2 active:border-b-gray py-5">Owned</div>
+				<div className="active:text-white active:border-b-2 active:border-b-gray py-5">Collection</div>
+			</div>
+		</section>
+	</>
   )
 }

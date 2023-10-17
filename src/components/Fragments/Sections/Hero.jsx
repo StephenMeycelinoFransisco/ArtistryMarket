@@ -26,7 +26,14 @@ const Hero = () => {
                 icon={<AiOutlineMail />}
               />
             </div>
-            <Additional />
+            <Additional
+              number1={"240k+"}
+              number2={"100k+"}
+              number3={"240k"}
+              caption1={"Total Sales"}
+              caption2={"Auctions"}
+              caption3={"Artist"}
+            />
           </div>
         </div>
         <div className="grid gap-10 mt-10 md:mt-0 ">

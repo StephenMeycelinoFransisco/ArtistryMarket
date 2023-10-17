@@ -18,7 +18,7 @@ export default function Info() {
         <h1 className="font-semibold text-3xl capitalize leading-10">
           Animakid
         </h1>
-        <div className="grid gap-8 md:flex">
+        <div className="grid gap-5 md:flex">
           <Button
             colorRounded="bg-purple rounded-xl"
             style="p-4"
@@ -33,7 +33,14 @@ export default function Info() {
           />
         </div>
       </div>
-      <Additional />
+      <Additional
+        number1={"250k+"}
+        number2={"50k+"}
+        number3={"3000+"}
+        caption1={"Volume"}
+        caption2={"NFTs Sold"}
+        caption3={"Followers"}
+      />
       <div className="text-base leading-6 font-spaceMono grid gap-3">
         <h3 className="text-gray">Bio</h3>
         <caption className="text-white">
