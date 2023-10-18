@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className="bg-transparent flex flex-wrap items-center justify-between px-[1.875rem] py-[0.938rem] md:px-[3.125rem]">
+      <nav className="flex flex-wrap items-center justify-between px-[1.875rem] py-[0.938rem] md:px-[3.125rem] bg-black">
         <div className="container mx-auto flex flex-wrap items-center justify-between font-poppins">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link

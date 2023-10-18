@@ -5,13 +5,19 @@ import Routes from '../routes/Router'
 
 export default function Layout() {
   return (
-	<>
-		<Header />
-		<div>
-			<Routes/>
-		</div>
-		<Footer />
-	</>
-  )
+    <>
+      <Header />
+      <section className="grid">
+        <div className="max-w-[17.5rem] mx-auto lg:max-w-2xl xl:max-w-5xl">
+          <Routes />
+        </div>
+        <div className="bg-black-secondary">
+          <div className="max-w-[17.5rem] mx-auto  lg:max-w-2xl xl:max-w-5xl">
+            <Footer />
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
 
