@@ -18,7 +18,7 @@ export default function Hero() {
             sell art from more than 20k NFT artists.
           </caption>
           <div className="">
-            <Link to={"/login"}>
+            <Link to={"/register"}>
               <Button
                 colorRounded="bg-purple rounded-2xl mb-3 lg:mb-5"
                 text="Get Started"
