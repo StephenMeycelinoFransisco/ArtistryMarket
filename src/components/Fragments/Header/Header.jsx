@@ -54,7 +54,7 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
-              <Link to={"/login"}>
+              <Link to={"/register"}>
                 <Button
                   colorRounded="bg-purple rounded-xl"
                   style="p-2"

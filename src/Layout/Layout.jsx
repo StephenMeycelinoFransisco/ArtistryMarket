@@ -8,7 +8,7 @@ export default function Layout() {
     <>
       <Header />
       <section className="grid">
-        <div className="max-w-[17.5rem] mx-auto lg:max-w-2xl xl:max-w-5xl">
+        <div className="">
           <Routes />
         </div>
         <div className="bg-black-secondary">

@@ -9,7 +9,7 @@ import Trending from "../components/Fragments/Sections/Trending";
 const Home = () => {
   return (
     <>
-      <section className="grid gap-10 my-10">
+      <section className="grid gap-10 my-10 max-w-[17.5rem] mx-auto lg:max-w-2xl xl:max-w-5xl">
         <Hero />
         <Trending />
         <Creator />
