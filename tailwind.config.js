@@ -12,7 +12,8 @@ export default {
       'black-secondary': '#3B3B3B',
       'gray': '#858584',
       'white': '#FFF',
-      'purple': '#A259FF'
+      'purple': '#A259FF',
+      'green': '#00AC4F'
     },
     fontFamily: {
       'poppins': ['Poppins', 'sans-serif',],

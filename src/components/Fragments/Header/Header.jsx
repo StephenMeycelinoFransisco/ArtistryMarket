@@ -10,7 +10,7 @@ export default function Header() {
 
   const routes = [
     { path: "/marketplace", label: "Marketplace" },
-    { path: "/ranking", label: "Rankings" },
+    { path: "/rankings", label: "Rankings" },
     { path: "/wallet", label: "Connect to wallet" },
   ];
 

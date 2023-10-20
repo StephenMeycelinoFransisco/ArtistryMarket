@@ -9,7 +9,7 @@ export default function TabBar({ tabs, activeTab, onTabClick }) {
             key={index}
             onClick={() => onTabClick(index)}
             className={`p-[10px] text-gray font-semibold text-base text-center capitalize leading-6 cursor-pointer lg:p-6 ${
-              activeTab === index ? 'border-b-4 border-gray' : 'border-b-2 border-transparent hover:text-purple hover:bg-purple'
+              activeTab === index ? 'border-b-4 text-white border-gray' : 'border-b-2 border-transparent  hover:text-white hover:bg-black-secondary'
             }`}
           >
             {tab}
