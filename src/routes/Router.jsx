@@ -6,6 +6,7 @@ import Artist from '../pages/Artist'
 import Register from '../components/Auth/Register'
 import NftDetails from '../pages/NftDetails'
 import MarketPlace from '../pages/MarketPlace'
+import Rankings from '../pages/Rankings'
 
 export default function Router() {
   return (
@@ -16,6 +17,7 @@ export default function Router() {
 		<Route path='/register' element={ <Register /> } />
 		<Route path='/nft-detail' element={ <NftDetails /> } />
 		<Route path='/marketplace' element={ <MarketPlace /> } />
+		<Route path='/rankings' element={ <Rankings /> } />
 	</Routes>
   )
 }
