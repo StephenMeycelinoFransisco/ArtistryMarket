@@ -9,7 +9,7 @@ export default function Header() {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const routes = [
-    { path: "/market", label: "Marketplace" },
+    { path: "/marketplace", label: "Marketplace" },
     { path: "/ranking", label: "Rankings" },
     { path: "/wallet", label: "Connect to wallet" },
   ];

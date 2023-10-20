@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Artist() {
   return (
-    <section className="bg-black-secondary p-5 rounded-2xl">
+    <section className="bg-black-secondary p-5 rounded-2xl hover:scale-95 duration-200">
       <div className="flex gap-5 xl:grid">
         <span className="bg-black w-6 h-6 absolute rounded-full xl:w-8 xl:h-8">
           <caption className="relative top-1.5 left-2.5 text-gray xl:left-3 xl:text-sm">1</caption>

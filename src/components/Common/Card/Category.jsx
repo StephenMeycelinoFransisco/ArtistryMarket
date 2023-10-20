@@ -3,7 +3,7 @@ import { HiOutlinePaintBrush } from "react-icons/hi2";
 
 export default function Category() {
   return (
-    <section className="relative bg-black-secondary rounded-xl overflow-hidden">
+    <section className="relative bg-black-secondary rounded-xl overflow-hidden hover:scale-95 duration-200">
       <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
         <HiOutlinePaintBrush size={64} />
       </div>
