@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Nft({ className }) {
   return (
-    <section className={`${className} rounded-2xl`}>
+    <section className={`${className} rounded-2xl hover:scale-95 duration-200`}>
       <img
         className="rounded-t-2xl"
         src="https://s3-alpha-sig.figma.com/img/1227/9881/7c4f8936a4246f91674d47fe40c14d63?Expires=1698624000&Signature=m25tADyzFcivq0pRl6emnv5VspZwwwaiOfdRZbzS07XqJh1OWWvLMlHfBIqo5dEKczjio83Nr3K6IDM8t1wYdBZRA5UjPqWgAiaANDix3AMG8F3Suh622BQJF0zhZw1AtJtoW-vWgQiq6I2EDFP0qO09nioxoOuOf9CZjuTQpI3ARWuUDIVJjQMWBGyGoD4YK7ViHelqs9c1dl~QRcQXrnAPsyWtM49ds~STtt5PZ2F6kPb85D7JnsnqffdSp~vMZBk8Io6h5fnkUaQxj1nw40n8YfL8FmUWZh0mCKEIVEHM-jHSLC~uRP~9L4-MPTnUFiFBodk4i-QFsykEZHO3-w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"

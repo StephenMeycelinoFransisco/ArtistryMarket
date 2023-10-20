@@ -3,6 +3,7 @@ import Artist from "../../Common/Card/Artist";
 import Title from "../../Common/Title/Title";
 import Button from "../../Common/Button/Button";
 import { PiRocketLaunchLight } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 export default function Creator() {
   return (
@@ -21,7 +22,9 @@ export default function Creator() {
           }
         />
         <div className="grid grid-cols-1 gap-5 lg:gap-8 lg:grid-cols-2 xl:grid-cols-4">
-          <Artist />
+          <Link to={'/artist'}>
+            <Artist />
+          </Link>
           <Artist />
           <Artist />
           <Artist />

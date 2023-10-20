@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import Cover from "../components/Common/Cover/Cover";
-import ArtistInfo from "../components/Fragments/Sections/ArtistInfo";
+import Headline from "../components/Common/Headline/Headline";
 import TabBar from "../components/Common/TabBar/TabBar";
 import Nft from "../components/Common/Card/Nft";
-import { LuImagePlus } from "react-icons/lu";
-import PopUp from "../components/Common/PopUp/PopUp";
 
-export default function Artist() {
-  const tabList = ["Created", "Owned", "Collection"];
+export default function MarketPlace() {
+  const tabList = ["NFTs", "Collection"];
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index) => {
@@ -16,12 +13,9 @@ export default function Artist() {
 
   return (
     <>
-      <section className="grid gap-10">
-        <div className="my-8">
-          <Cover />
-        </div>
-        <div className="w-full my-8 max-w-[17.5rem] mx-auto lg:max-w-4xl lg:justify-center xl:max-w-6xl">
-          <ArtistInfo />
+      <section className="grid ">
+        <div className="grid max-w-[17.5rem] mx-auto lg:max-w-4xl lg:mx-0 lg:justify-center xl:max-w-5xl">
+          <Headline />
         </div>
         <div className="grid max-w-full">
           <TabBar
@@ -32,7 +26,6 @@ export default function Artist() {
         </div>
         <div className="my-10 max-w-[17.5rem] mx-auto lg:max-w-2xl xl:max-w-5xl">
           <div className="grid grid-cols-1 gap-5 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-            {/* Render content based on the active tab */}
             {activeTab === 0 && (
               <>
                 <Nft className={"bg-black-secondary"} />
@@ -47,16 +40,8 @@ export default function Artist() {
                 <Nft className={"bg-black-secondary"} />
               </>
             )}
-            {activeTab === 2 && (
-              <>
-                <Nft className={"bg-black-secondary"} />
-                <Nft className={"bg-black-secondary"} />
-                <Nft className={"bg-black-secondary"} />
-              </>
-            )}
           </div>
         </div>
-        <PopUp icon={<LuImagePlus size={24} />} />
       </section>
     </>
   );

@@ -2,9 +2,9 @@ import React from "react";
 import Title from "../../Common/Title/Title";
 import Button from "../../Common/Button/Button";
 import Nft from "../../Common/Card/Nft";
-import { AiOutlineEye } from "react-icons/ai";
+import { HiArrowRight } from "react-icons/hi";
 
-export default function DiscoverMore() {
+export default function MoreNft() {
   return (
     <>
       <section className="grid gap-10">
@@ -14,9 +14,9 @@ export default function DiscoverMore() {
           button={
             <Button
               colorRounded="bg-transparent rounded-2xl mb-3 lg:mb-5"
-              text="See All"
+              text="Go To Artist Page"
               style="p-3"
-              icon={<AiOutlineEye size={24} color="#A259FF" />}
+              icon={<HiArrowRight size={24} color="#A259FF" />}
             />
           }
         />
@@ -28,9 +28,9 @@ export default function DiscoverMore() {
         <div className="grid lg:hidden">
           <Button
             colorRounded="bg-transparent rounded-2xl mb-3 lg:mb-5"
-            text="See All"
+            text="Go To Artist Page"
             style="p-3"
-            icon={<AiOutlineEye size={24} color="#A259FF" />}
+            icon={<HiArrowRight size={24} color="#A259FF" />}
           />
         </div>
       </section>
