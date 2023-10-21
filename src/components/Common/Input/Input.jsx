@@ -5,6 +5,7 @@ export default function Input({ type, value, name, placeholder, icon, rounded })
     <section
       className={`flex gap-3 px-5 py-4 bg-white items-center ${rounded}`}
     >
+      {icon}
       <input
         type={type}
         value={value}
@@ -12,7 +13,6 @@ export default function Input({ type, value, name, placeholder, icon, rounded })
         placeholder={placeholder}
         className="text-black-secondary w-full outline-none"
       />
-      {icon}
     </section>
   );
 }
