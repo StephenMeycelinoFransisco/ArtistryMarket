@@ -6,8 +6,7 @@ import Nft from "../components/Elements/Card/Nft";
 import Popup from "../components/Elements/Popup/Popup";
 import { LuImagePlus } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
+import { fetchDataFromFirestore } from "../api/FirebaseService";
 
 export default function Artistpage() {
   const tabList = ["Created", "Owned", "Collection"];
@@ -17,38 +16,10 @@ export default function Artistpage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const productsQuery = await getDocs(collection(db, "products"));
-        const usersQuery = await getDocs(collection(db, "users"));
-  
-        const productsData = [];
-        const usersData = [];
-  
-        // Ambil data dari koleksi "products"
-        productsQuery.forEach((productDoc) => {
-          const productData = productDoc.data();
-          productsData.push(productData);
-        });
-  
-        // Ambil data dari koleksi "users"
-        usersQuery.forEach((userDoc) => {
-          const userData = userDoc.data();
-          usersData.push(userData);
-        });
-  
-        // Gabungkan data berdasarkan Id 
-        const combinedData = productsData.map((product) => {
-          // Pengecekan uid dari user === userId dari product
-          const user = usersData.find((user) => user.uid === product.userId);
-          return { ...product, user };
-        });
-  
-        setData(combinedData);
-      } catch (err) {
-        console.log(err);
-      }
+      const combinedData = await fetchDataFromFirestore();
+      setData(combinedData);
     };
-  
+
     fetchData();
   }, []);
   
