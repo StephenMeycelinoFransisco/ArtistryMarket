@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TabBar from "../components/Common/TabBar/TabBar";
-import Header from "../components/Common/Table/Header";
-import Item from "../components/Common/Table/Item";
+import Tab from "../components/Fragments/Artist/Tab";
+import Header from "../components/Fragments/Ranking/Header";
+import Item from "../components/Fragments/Ranking/Item";
 
 export default function Rankings() {
   const tabList = ["1d", "7d", "30d", "All Time"];
@@ -22,7 +22,7 @@ export default function Rankings() {
         </caption>
       </div>
       <div className="grid max-w-full">
-        <TabBar
+        <Tab
           tabs={tabList}
           activeTab={activeTab}
           onTabClick={handleTabClick}

@@ -1,85 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Space+Mono:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Space+Mono:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap");
+
+/* font-family: 'Space Mono', monospace; */
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Roboto', sans-serif;
+/* font-family: 'Work Sans', sans-serif;  */
 
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-	background-color: #2B2B2B !important;
-	font-weight: 400;
-	font-family: 'Work Sans', sans-serif;
-	font-size: 16px;
-	line-height: 140%;
-	color: #fff;
-	/* font-family: 'Space Mono', monospace; */
-	/* font-family: 'Poppins', sans-serif; */
-	/* font-family: 'Roboto', sans-serif;
-	font-family: 'Work Sans', sans-serif; */
+  background-color: #2b2b2b !important;
+  line-height: 140%;
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
 }
 
-h1, h2, h3, h4, h5, caption {
-	font-family: 'Work Sans', sans-serif;
-	text-transform: capitalize;
-	color: #FFF;
+h1,
+h2,
+h3,
+h4,
+h5,
+caption {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-transform: capitalize ;
+  font-weight: 600 ;
+}
+
+h1,
+h2 {
+  line-height: 110% ; /* 73.7px */
 }
 
 h1 {
-	font-size: 67px;
-	font-weight: 700;
-	line-height: 110%;
+  /* H1 - Work Sans */
+  font-size: 67px ;
 }
 
 h2 {
-	font-size: 51px;
-	font-weight: 700;
-	line-height: 110%;
+  /* H2 - Work Sans */
+  font-size: 51px ;
 }
 
 h3 {
-	font-size: 38px;
-	font-weight: 700;
-	line-height: 110%;
+  /* H3 - Work Sans */
+  font-size: 38px ;
+  line-height: 120% ; /* 45.6px */
 }
 
 h4 {
-	font-size: 28px;
-	font-weight: 700;
-	line-height: 140%; 
+  /* H4 - Work Sans */
+  font-size: 28px ;
+  line-height: 140% ; /* 39.2px */
 }
 
 h5 {
-	font-size: 22px;
-	font-weight: 700;
-	line-height: 160%;
+  /* H5 - Work Sans */
+  font-size: 22px ;
+  line-height: 140% ; /* 30.8px */
 }
 
 caption {
-	font-size: 12px;
-	font-weight: 400;
-	line-height: 110%;
-	display: flex;
-	text-align: start;
+  text-align: start;
+  font-size: 12px;
+  font-weight: 400 ;
+  line-height: 110% ; /* 13.2px */
 }
 
 a {
-	text-decoration: none;
-	color: unset;
+  text-decoration: none;
+  color: unset;
 }
 
 a:hover {
-	color: unset;
+  color: unset;
 }
 
 ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button .tertiary {
+  display: inline-flex;
+  height: 46px;
+  padding: 0px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
 }

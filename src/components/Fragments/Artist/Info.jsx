@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../../Common/Button/Button";
 import { BiCopy } from "react-icons/bi";
 import {
   AiOutlineGlobal,
@@ -7,11 +6,12 @@ import {
   AiOutlinePlus,
   AiOutlineYoutube,
 } from "react-icons/ai";
-import AdditionalInfo from "../../Common/AdditionalInfo";
 import { RxDiscordLogo } from "react-icons/rx";
 import { FiTwitter } from "react-icons/fi";
+import Button from "../../Elements/Button/Button";
+import Additional from "../../Elements/Additional/Additional";
 
-export default function ArtistInfo() {
+export default function Info() {
   return (
     <>
       <section className="grid gap-8">
@@ -20,22 +20,16 @@ export default function ArtistInfo() {
             Animakid
           </h1>
           <div className="grid gap-8 lg:flex ">
+            <Button className='bg-purple py-3 rounded-2xl' text="0xc0E3...B79C" icon={<BiCopy size={24} />} />
             <Button
-              colorRounded="bg-purple rounded-xl"
-              style="p-3"
-              text="0xc0E3...B79C"
-              icon={<BiCopy size={24} />}
-            />
-            <Button
-              colorRounded="bg-tranparent rounded-xl"
-              style="p-3"
+            className='border border-purple py-3 rounded-2xl'
               text="Follow"
               icon={<AiOutlinePlus size={24} color="#A259FF" />}
             />
           </div>
         </div>
         <div className="grid grid-cols-1 lg:max-w-md">
-          <AdditionalInfo
+          <Additional
             n1={"240k+"}
             n2={"100k+"}
             n3={"3000+"}
@@ -48,9 +42,9 @@ export default function ArtistInfo() {
           <h1 className="text-base font-spaceMono leading-6 text-gray lg:text-base">
             Bio
           </h1>
-          <caption className="text-sm leading-6 lg:text-base">
+          <p className="text-sm text-start leading-6 lg:text-base">
             The internet's friendliest designer kid.
-          </caption>
+          </p>
         </div>
         <div className="grid grid-cols-1 gap-2">
           <h1 className="text-base font-spaceMono leading-6 text-gray lg:text-base">

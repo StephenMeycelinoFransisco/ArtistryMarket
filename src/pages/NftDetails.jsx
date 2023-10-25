@@ -1,7 +1,7 @@
 import React from "react";
-import Clock from "../components/Common/Clock/Clock";
 import { AiOutlineGlobal } from "react-icons/ai";
-import MoreNft from "../components/Fragments/Sections/MoreNft";
+import Clock from "../components/Fragments/NFT/Clock";
+import MoreNft from "../components/Fragments/NFT/MoreNft";
 
 export default function NftDetails() {
   return (
