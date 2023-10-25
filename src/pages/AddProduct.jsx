@@ -5,7 +5,7 @@ import Textarea from "../components/Elements/Input/Textarea";
 import Button from "../components/Elements/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { auth, db, storage } from "../firebase";
-import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 export default function AddProduct() {
@@ -86,24 +86,24 @@ export default function AddProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
-      if (auth.currentUser && data.img) { 
+      if (auth.currentUser && data.img) {
         const userId = auth.currentUser.uid;
-        const productsRef = doc(db, "products");
-  
+        const productsRef = collection(db, "products");
+
         const productData = {
           ...formData,
           img: data.img,
           timeStamp: serverTimestamp(),
           userId: userId,
         };
-  
+
         const docRef = await addDoc(productsRef, productData);
-  
+
         console.log("Document written with ID: ", docRef.id);
         alert("Data berhasil ditambahkan");
-        // navigate("/artist");
+        navigate("/artist");
       } else {
         console.log("User is not authenticated or image is not uploaded.");
       }
@@ -111,7 +111,7 @@ export default function AddProduct() {
       console.error(err);
     }
   };
-  
+
   return (
     <>
       <section className="grid lg:grid-cols-2 lg:gap-[40px] lg:items-center">
@@ -185,7 +185,7 @@ export default function AddProduct() {
                 />
 
                 <Button
-                  disable={perc !== null && perc < 100} 
+                  disable={perc !== null && perc < 100}
                   text={"Submit"}
                   type={"submit"}
                   className={"bg-purple py-3 rounded px-12"}
