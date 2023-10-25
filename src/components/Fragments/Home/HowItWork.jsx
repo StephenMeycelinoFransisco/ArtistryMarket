@@ -1,8 +1,9 @@
 import React from "react";
-import Title from "../../Common/Title/Title";
-import Info from "../../Common/Card/Info";
 
-import vector from '../ ../../assets/img/CreateCollectionIcon.png'
+import Title from "../../Elements/Title/Title";
+import Info from "../../Elements/Card/Info";
+
+import vector from '../../../assets/img/CreateCollectionIcon.png'
 
 export default function HowItWork() {
   return (

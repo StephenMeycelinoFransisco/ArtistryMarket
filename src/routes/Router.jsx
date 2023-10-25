@@ -1,23 +1,78 @@
-import React from 'react'
+import React, { useContext } from "react";
 
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Home from '../pages/Home'
-import Artist from '../pages/Artist'
-import Register from '../components/Auth/Register'
-import NftDetails from '../pages/NftDetails'
-import MarketPlace from '../pages/MarketPlace'
-import Rankings from '../pages/Rankings'
+import { Routes, Route, Navigate } from "react-router-dom";
+import Homepage from "../Pages/Homepage";
+import { AuthContext } from "../context/AuthContext";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
+import Artistpage from "../Pages/Artistpage";
+import AddProduct from "../Pages/AddProduct";
+import MarketPlace from "../Pages/Marketplace";
+import Rankings from "../Pages/Rankings";
+import NftDetails from "../Pages/NftDetails";
 
 export default function Router() {
+  const { currentUser } = useContext(AuthContext);
+
+  const RequireAuth = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />;
+  };
+
+  console.log(currentUser);
+
   return (
-	<Routes>
-		<Route path='/' element={ <Navigate to='/home' /> } />
-		<Route path='/home' element={ <Home /> } />
-		<Route path='/artist' element={ <Artist /> } />
-		<Route path='/register' element={ <Register /> } />
-		<Route path='/nft-detail' element={ <NftDetails /> } />
-		<Route path='/marketplace' element={ <MarketPlace /> } />
-		<Route path='/rankings' element={ <Rankings /> } />
-	</Routes>
-  )
+    <Routes>
+      <Route path="/" element={<Navigate to="/home" />} />
+      <Route
+        path="/home"
+        element={
+          <RequireAuth>
+            <Homepage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/artist"
+        element={
+          <RequireAuth>
+            <Artistpage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="artist/add"
+        element={
+          <RequireAuth>
+            <AddProduct />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="marketplace"
+        element={
+          <RequireAuth>
+            <MarketPlace />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="rankings"
+        element={
+          <RequireAuth>
+            <Rankings />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="nft/:id"
+        element={
+          <RequireAuth>
+            <NftDetails />
+          </RequireAuth>
+        }
+      />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
+  );
 }
