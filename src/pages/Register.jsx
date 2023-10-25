@@ -71,8 +71,6 @@ export default function Register() {
   const validateRegister = (e) => {
     const { name, value } = e.target;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     if (name === "email") {
       if (value === "") {
@@ -96,12 +94,6 @@ export default function Register() {
         setErrorMsg({
           ...errorMsg,
           password: "Password tidak boleh kosong.",
-        });
-      } else if (!passwordRegex.test(value)) {
-        setErrorMsg({
-          ...errorMsg,
-          password:
-            "Password harus memiliki setidaknya 8 karakter, 1 karakter khusus, angka, dan huruf.",
         });
       } else {
         setErrorMsg({
