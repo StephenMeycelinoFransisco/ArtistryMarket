@@ -4,12 +4,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Homepage from "../Pages/Homepage";
 import { AuthContext } from "../context/AuthContext";
 import Login from "../Pages/Login";
-import Register from "../Pages/Register";
 import Artistpage from "../Pages/Artistpage";
-import AddProduct from "../Pages/AddProduct";
 import MarketPlace from "../Pages/Marketplace";
 import Rankings from "../Pages/Rankings";
 import NftDetails from "../Pages/NftDetails";
+import AddProduct from "../pages/AddProduct";
+import Register from "../pages/Register";
 
 export default function Router() {
   const { currentUser } = useContext(AuthContext);
@@ -71,7 +71,7 @@ export default function Router() {
           </RequireAuth>
         }
       />
-      <Route path="/login" element={<Login/>} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
     </Routes>
   );

@@ -22,11 +22,7 @@ export default function Rankings() {
         </caption>
       </div>
       <div className="grid max-w-full">
-        <Tab
-          tabs={tabList}
-          activeTab={activeTab}
-          onTabClick={handleTabClick}
-        />
+        <Tab tabs={tabList} activeTab={activeTab} onTabClick={handleTabClick} />
       </div>
       <div className="grid my-10">
         <div className="grid gap-5 max-w-[17.5rem] mx-auto w-full lg:max-w-2xl xl:max-w-5xl">
@@ -37,21 +33,21 @@ export default function Rankings() {
               <Item />
             </div>
           )}
-		  {activeTab === 1 && (
+          {activeTab === 1 && (
             <div className="grid gap-5 my-10">
               <Header />
               <Item />
               <Item />
             </div>
           )}
-		  {activeTab === 2 && (
+          {activeTab === 2 && (
             <div className="grid gap-5 my-10">
               <Header />
               <Item />
               <Item />
             </div>
           )}
-		  {activeTab === 3 && (
+          {activeTab === 3 && (
             <div className="grid gap-5 my-10">
               <Header />
               <Item />
