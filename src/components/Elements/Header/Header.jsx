@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import { AuthContext } from "../../../context/AuthContext";
 
+import Avatar from "../../../assets/img/avatar1.png";
+
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const { currentUser } = useContext(AuthContext);
@@ -20,7 +22,10 @@ const Header = () => {
     <nav className="bg-black px-[1.875rem] py-[0.938rem] md:px-[3.125rem] flex flex-wrap items-center justify-between">
       <div className="container mx-auto flex flex-wrap items-center justify-between font-poppins">
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-          <Link to="/home" className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
+          <Link
+            to="/home"
+            className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+          >
             <div className="flex items-center gap-5">
               <AiOutlineShop size={24} color="#A259FF" />
               <h5 className="text-2xl">Artisty</h5>
@@ -34,24 +39,39 @@ const Header = () => {
             {navbarOpen ? <FaTimes /> : <FaBarsStaggered />}
           </button>
         </div>
-        <div className={"lg:flex flex-grow items-center" + (navbarOpen ? " flex" : " hidden")} id="example-navbar-danger">
+        <div
+          className={
+            "lg:flex flex-grow items-center" +
+            (navbarOpen ? " flex" : " hidden")
+          }
+          id="example-navbar-danger"
+        >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto lg:items-center font-workSans gap-3">
             {routes.map((route, index) => (
               <li key={index} className="nav-item">
-                <Link to={route.path} className="text-white text-sm font-bold leading-snug px-3 py-2 flex items-center hover:opacity-75 hover:scale-90 transition-transform transform-gpu">
+                <Link
+                  to={route.path}
+                  className="text-white text-sm font-bold leading-snug px-3 py-2 flex items-center hover:opacity-75 hover:scale-90 transition-transform transform-gpu"
+                >
                   <span className="ml-2">{route.label}</span>
                 </Link>
               </li>
             ))}
-            {currentUser ? ( 
-              <img
-                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fuser-profile&psig=AOvVaw164bMDhI_5HhV_STaRtLMt&ust=1698389251455000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNi2o5GPk4IDFQAAAAAdAAAAABAJ" 
-                alt="User Avatar"
-                className="rounded-full w-8 h-8" 
-              />
+            {currentUser ? (
+              <Link to={"/artist"}>
+                <img
+                  src={Avatar}
+                  alt="User Avatar"
+                  className="rounded-full w-8 h-8"
+                />
+              </Link>
             ) : (
               <Link to="/register">
-                <Button className="bg-purple rounded-2xl h-14" text="Sign Up" icon={<AiOutlineUser />} />
+                <Button
+                  className="bg-purple rounded-2xl h-14"
+                  text="Sign Up"
+                  icon={<AiOutlineUser />}
+                />
               </Link>
             )}
           </ul>

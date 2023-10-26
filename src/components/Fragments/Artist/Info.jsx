@@ -11,7 +11,7 @@ import { FiTwitter } from "react-icons/fi";
 import Button from "../../Elements/Button/Button";
 import Additional from "../../Elements/Additional/Additional";
 
-export default function Info({artistName, bioUser}) {
+export default function Info({artistName, bioUser, id}) {
   return (
     <>
       <section className="grid gap-8">
@@ -20,7 +20,7 @@ export default function Info({artistName, bioUser}) {
             {artistName}
           </h1>
           <div className="grid gap-8 lg:flex ">
-            <Button className='bg-purple py-3 rounded-2xl' text="0xc0E3...B79C" icon={<BiCopy size={24} />} />
+            <Button className='bg-purple py-3 rounded-2xl' text={id} icon={<BiCopy size={24} />} />
             <Button
             className='border border-purple py-3 rounded-2xl'
               text="Follow"

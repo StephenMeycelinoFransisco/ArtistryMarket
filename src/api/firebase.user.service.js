@@ -9,7 +9,7 @@ import {
   doc,
 } from "firebase/firestore";
 
-const UserCollectionRef = collection(db, 'user');
+const UserCollectionRef = collection(db, 'users');
  class UserDataService {
 
   // add design
@@ -19,13 +19,13 @@ const UserCollectionRef = collection(db, 'user');
 
   // update design 
   updateUser = (id, updateUser) => {
-    const userDoc = doc(db, 'user', id);
-    return updateDoc(userDoc, updateUser);
+    const userDoc = doc(db, 'users', id);
+    return updateDoc(userDoc, { avatar: updateUser });
   } 
 
   // delete design
   deleteUser = (id) => {
-    const userDoc = doc(db, 'user', id);
+    const userDoc = doc(db, 'users', id);
     return deleteDoc(userDoc)
   }
 
@@ -35,7 +35,7 @@ const UserCollectionRef = collection(db, 'user');
   }
   // Get design by ID
   getUser = () => {
-    const userDoc = doc(db, 'user', id);
+    const userDoc = doc(db, 'users', id);
     return getDoc(userDoc)
   }
  }

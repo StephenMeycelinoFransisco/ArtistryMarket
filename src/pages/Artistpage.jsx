@@ -14,10 +14,10 @@ import noDataImage from "../assets/img/noData.png";
 export default function Artistpage() {
   const tabList = ["Created", "Owned", "Collection"];
   const [activeTab, setActiveTab] = useState(0);
-
   const [data, setData] = useState([]);
-
   const { currentUser } = useContext(AuthContext);
+
+  const [avatar, setAvatar] = useState(null);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
@@ -55,14 +55,18 @@ export default function Artistpage() {
     }
   };
 
+  const handleInputChange = (e) => {};
+
+  const handleClickSubmit = (e) => {};
+
   return (
     <>
       <section className="grid gap-10">
         <div className="my-8">
-          <Profile />
+          <Profile onChange={handleInputChange} onClick={handleClickSubmit} />
         </div>
         <div className="w-full my-8 max-w-[17.5rem] mx-auto lg:max-w-4xl lg:justify-center xl:max-w-6xl">
-          <Info artistName={currentUser.displayName} />
+          <Info artistName={currentUser.displayName} id={currentUser.uid}/>
         </div>
         <div className="grid max-w-full">
           <Tab
@@ -83,7 +87,7 @@ export default function Artistpage() {
                       artist={currentUser.displayName}
                       price={item.price}
                       img={item.img}
-                      bidPrice={item.bidPrice}
+                      bidPrice={item.bidPrice ? item.bidPrice : item.price}
                     />
                   </Link>
                 ))

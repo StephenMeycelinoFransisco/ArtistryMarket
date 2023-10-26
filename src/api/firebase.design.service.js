@@ -36,9 +36,6 @@ const DesignCollectionRef = collection(db, 'designs');
   
   // Get design by ID
   getDesign = (id) => {
-    if (!id) {
-      return Promise.reject(new Error('ID is not provided'));
-    }
     const designDoc = doc(db, 'designs', id);
     return getDoc(designDoc);
   }
