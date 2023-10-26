@@ -13,7 +13,7 @@ export default function MoreNft() {
           title={"Discover More NFTs"}
           desc={"Explore new trending NFTs"}
           button={
-            <Link to={'/artist'}>
+            <Link to={'/artist/:id'}>
               <Button
               className="bg-transparent py-3 rounded-2xl mb-3 lg:mb-5 border-2 border-purple"
               text="Go To Artist Page"

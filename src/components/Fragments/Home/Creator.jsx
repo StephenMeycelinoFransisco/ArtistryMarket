@@ -21,7 +21,7 @@ export default function Creator() {
           }
         />
         <div className="grid grid-cols-1 gap-5 lg:gap-8 lg:grid-cols-2 xl:grid-cols-4">
-          <Link to={'/artist'}>
+          <Link to={'/artist/:id'}>
             <Artist />
           </Link>
           <Artist />

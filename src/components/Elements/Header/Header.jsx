@@ -1,7 +1,13 @@
 import React, { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
-import { AiOutlineShop, AiOutlineUser } from "react-icons/ai";
+import {
+  AiFillProfile,
+  AiFillSetting,
+  AiOutlineLogout,
+  AiOutlineShop,
+  AiOutlineUser,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import { AuthContext } from "../../../context/AuthContext";
@@ -10,7 +16,13 @@ import Avatar from "../../../assets/img/avatar1.png";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, logout } = useContext(AuthContext);
+
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   const routes = [
     { path: "/marketplace", label: "Marketplace" },
@@ -57,23 +69,54 @@ const Header = () => {
                 </Link>
               </li>
             ))}
-            {currentUser ? (
-              <Link to={"/artist"}>
-                <img
-                  src={Avatar}
-                  alt="User Avatar"
-                  className="rounded-full w-8 h-8"
-                />
-              </Link>
-            ) : (
-              <Link to="/register">
-                <Button
-                  className="bg-purple rounded-2xl h-14"
-                  text="Sign Up"
-                  icon={<AiOutlineUser />}
-                />
-              </Link>
-            )}
+            <div className="relative">
+              {currentUser ? (
+                <div onClick={toggleDropdown}>
+                  <img
+                    src={Avatar}
+                    alt="User Avatar"
+                    className="rounded-full w-8 h-8 cursor-pointer"
+                  />
+                </div>
+              ) : (
+                <Link to="/register">
+                  <Button
+                    className="bg-purple rounded-2xl h-14"
+                    text="Sign Up"
+                    icon={<AiOutlineUser />}
+                  />
+                </Link>
+              )}
+
+              {isDropdownOpen && (
+                <div className="absolute top-10 right-0 bg-black-secondary border border-gray-300 rounded-md w-36 mx-2 my-6 z-10">
+                  <ul>
+                    <Link to="/artist/:id">
+                      <li className="flex items-center space-x-2 p-2 cursor-pointer">
+                        <AiFillProfile />
+                        <span>Profile</span>
+                      </li>
+                    </Link>
+                    <Link to="/artist/:id">
+                      <li className="flex items-center space-x-2 p-2 cursor-pointer">
+                        <AiFillSetting />
+                        <span>Setting</span>
+                      </li>
+                    </Link>
+                    <li
+                      className="flex items-center space-x-2 p-2 cursor-pointer"
+                      onClick={() => {
+                        logout(); 
+                        setDropdownOpen(false); 
+                      }}
+                    >
+                      <AiOutlineLogout />
+                      <span>Log Out</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
           </ul>
         </div>
       </div>

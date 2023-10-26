@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import AuthReducer from "./AuthReducer";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { ColorRing } from "react-loader-spinner";
 
@@ -34,8 +34,16 @@ export const AuthContextProvider = ({ children }) => {
     dispatch({ type: "REGISTER", payload: user });
   };
 
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser: state.currentUser, dispatch, registerUser }}>
+    <AuthContext.Provider value={{ currentUser: state.currentUser, dispatch, registerUser, logout }}>
       {state.loading ? (
         <div className="flex justify-center items-center h-screen">
           <ColorRing

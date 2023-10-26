@@ -110,7 +110,7 @@ export default function NftDetails() {
                         <h1 className="font-spaceMono text-base leading-6 text-gray xl:text-2xl xl:font-bold xl:leading-8 xl:capitalize">
                           Created By
                         </h1>
-                        <Link to={"/artist"}>
+                        <Link to={"/artist/:id"}>
                           <div className="flex items-center gap-3 hover:scale-95 duration-300">
                             <img
                               className="w-6 h-6 rounded-full"

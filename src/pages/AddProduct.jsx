@@ -115,7 +115,7 @@ export default function AddProduct() {
         await DesignDataService.addDesign(newDesign);
 
         alert("Data berhasil ditambahkan");
-        navigate("/artist");
+        navigate("/artist/:id");
       } else {
         console.log("User is not authenticated or image is not uploaded.");
       }

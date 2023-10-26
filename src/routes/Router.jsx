@@ -32,7 +32,7 @@ export default function Router() {
         }
       />
       <Route
-        path="/artist"
+        path="/artist/:id"
         element={
           <RequireAuth>
             <Artistpage />
