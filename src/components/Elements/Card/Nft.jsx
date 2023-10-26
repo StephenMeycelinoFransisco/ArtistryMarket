@@ -1,12 +1,6 @@
-import React, { useState } from "react";
-// import { BsThreeDots } from "react-icons/bs";
+import React from "react";
 
 export default function Nft({ className, title, artist, price, img, bidPrice }) {
-  // const [isDropdownOpen, setDropdownOpen] = useState(false);
-
-  // const toggleDropdown = () => {
-  //   setDropdownOpen(!isDropdownOpen);
-  // };
 
   return (
     <section className={`${className} rounded-2xl hover:scale-95 duration-200`}>
@@ -30,23 +24,7 @@ export default function Nft({ className, title, artist, price, img, bidPrice }) 
               <p className="font-spaceMono text-base leading-6">{artist}</p>
             </div>
           </div>
-          {/* <div className="grid">
-            <div className="relative">
-              <BsThreeDots onClick={toggleDropdown} />
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-36 bg-black-secondary border border-black rounded-md shadow-lg">
-                  <ul>
-                    <li className="cursor-pointer px-4 py-2 hover:bg-gray-100">
-                      Edit
-                    </li>
-                    <li className="cursor-pointer px-4 py-2 hover:bg-gray-100">
-                      Delete
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div> */}
+          
         </div>
         <div className="flex justify-between mt-6">
           <div className="grid gap-2 text-start">

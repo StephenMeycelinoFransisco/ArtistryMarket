@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { AiOutlineShop, AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
+import { AuthContext } from "../../../context/AuthContext";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const { currentUser } = useContext(AuthContext);
 
   const routes = [
     { path: "/marketplace", label: "Marketplace" },
@@ -41,9 +43,17 @@ const Header = () => {
                 </Link>
               </li>
             ))}
-            <Link to="/register">
-              <Button className="bg-purple rounded-2xl h-14" text="Sign Up" icon={<AiOutlineUser />} />
-            </Link>
+            {currentUser ? ( 
+              <img
+                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fuser-profile&psig=AOvVaw164bMDhI_5HhV_STaRtLMt&ust=1698389251455000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNi2o5GPk4IDFQAAAAAdAAAAABAJ" 
+                alt="User Avatar"
+                className="rounded-full w-8 h-8" 
+              />
+            ) : (
+              <Link to="/register">
+                <Button className="bg-purple rounded-2xl h-14" text="Sign Up" icon={<AiOutlineUser />} />
+              </Link>
+            )}
           </ul>
         </div>
       </div>
