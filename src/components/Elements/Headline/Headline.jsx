@@ -9,13 +9,13 @@ export default function Headline() {
         <h1 className="text-2xl font-semibold capitalize leading-6 lg:text-3xl xl:text-5xl xl:leading-[110%]">
           Browse Marketplace
         </h1>
-        <caption className="text-base leading-6 xl:text-xl">
+        <p className="text-base leading-6 xl:text-xl">
           Browse through more than 50k NFTs on the NFT Marketplace.
-        </caption>
+        </p>
       </div>
-    <div className="grid">
+      <div className="grid">
         <Input
-          icon={<AiOutlineSearch size={24} color="#2B2B2B"/>}
+          icon={<AiOutlineSearch size={24} color="#2B2B2B" />}
           placeholder="Search your favourite NFTs"
           type="text"
           name="search"

@@ -41,23 +41,25 @@ export default function Register() {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    const { username, email, password, confirmpassword } = form;
+    const { username, email, password } = form;
 
-    createUserWithEmailAndPassword(auth, email, password, { displayName: username, rememberMe: true })
+    createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         const user = userCredential.user;
 
-        // Simpan data pengguna ke Firestore
-        await addDoc(collection(db, "users"), {
+        // Set the displayName for the user
+        await updateProfile(user, { displayName: username });
+
+        // Now, user.displayName won't be null
+        console.log("User's displayName:", user.displayName);
+
+        // Generate a new document ID for the user data
+        const docRef = await addDoc(collection(db, "users"), {
           uid: user.uid,
-          username: form.username,
-        })
-          .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-          })
-          .catch((error) => {
-            console.error("Error adding document: ", error);
-          });
+          username,
+        });
+
+        console.log("Document written with ID: ", docRef.id);
 
         dispatch({ type: "REGISTER", payload: user });
         navigate("/");

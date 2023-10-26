@@ -27,7 +27,7 @@ h2,
 h3,
 h4,
 h5,
-caption {
+p {
   color: #fff;
   font-family: "Work Sans", sans-serif;
   font-style: normal;
@@ -75,7 +75,7 @@ h5 {
   line-height: 140% ; /* 30.8px */
 }
 
-caption {
+p {
   text-align: start;
   font-size: 12px;
   font-weight: 400 ;

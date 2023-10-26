@@ -11,7 +11,7 @@ export default function Nft({ className, title, artist, price, img }) {
   return (
     <section className={`${className} rounded-2xl hover:scale-95 duration-200`}>
       <img
-        className="rounded-t-2xl min-h-[295px] object-cover object-center w-full"
+        className="rounded-t-2xl h-[295px] object-cover object-center w-full"
         src={img}
         alt={artist}
       />

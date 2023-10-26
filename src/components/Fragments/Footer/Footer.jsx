@@ -19,13 +19,11 @@ export default function Footer() {
             <AiOutlineShop color="#A259FF" size={24} />
             <h1 className="font-spaceMono font-semibold text-xl">Artisty</h1>
           </div>
-          <caption className="text-gray text-base">
+          <p className="text-gray text-base">
             NFT marketplace UI created with Anima for Figma.
-          </caption>
+          </p>
           <div className="grid gap-4">
-            <caption className="text-gray text-base">
-              Join our community
-            </caption>
+            <p className="text-gray text-base">Join our community</p>
             <div className="flex gap-3 text-gray">
               <RxDiscordLogo size={24} />
               <AiOutlineYoutube size={24} />
@@ -52,9 +50,9 @@ export default function Footer() {
           <h1 className="text-xl font-bold font-spaceMono capitalize">
             Join Our Weekly Digest
           </h1>
-          <caption className="text-base text-gray">
+          <p className="text-base text-gray">
             Get exclusive promotions & updates straight to your inbox.
-          </caption>
+          </p>
           <div className="grid gap-4 lg:flex lg:bg-white lg:rounded-full lg:justify-between lg:mr-48 lg:gap-1 xl:mr-0 xl:rounded-2xl">
             <Input
               placeholder="Enter Your Email Address"
@@ -72,9 +70,9 @@ export default function Footer() {
         </div>
         <div className="grid gap-5 my-4">
           <hr className="text-gray" />
-          <caption className="text-base text-gray">
+          <p className="text-base text-gray">
             Ⓒ NFT Market. Use this template freely.
-          </caption>
+          </p>
         </div>
       </div>
     </section>

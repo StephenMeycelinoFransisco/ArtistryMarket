@@ -5,7 +5,9 @@ export default function Artist() {
     <section className="bg-black-secondary p-5 rounded-2xl hover:scale-95 duration-200">
       <div className="flex gap-5 xl:grid">
         <span className="bg-black w-6 h-6 absolute rounded-full xl:w-8 xl:h-8">
-          <caption className="relative top-1.5 left-2.5 text-gray xl:left-3 xl:text-sm">1</caption>
+          <p className="relative top-1.5 left-2.5 text-gray xl:left-3 xl:text-sm">
+            1
+          </p>
         </span>
         <img
           className="w-16 h-16 rounded-full xl:mx-auto xl:w-32 xl:h-32 "
@@ -17,8 +19,10 @@ export default function Artist() {
             Dish Studio
           </h1>
           <div className="flex gap-1 xl:justify-center">
-            <caption className="text-sm text-gray leading-6 xl:text-base ">Total Sales:</caption>
-			<span className="text-sm leading-6 xl:text-base">34.35 ETH</span>
+            <p className="text-sm text-gray leading-6 xl:text-base ">
+              Total Sales:
+            </p>
+            <span className="text-sm leading-6 xl:text-base">34.35 ETH</span>
           </div>
         </div>
       </div>

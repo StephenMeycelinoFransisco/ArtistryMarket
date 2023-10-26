@@ -1,12 +1,12 @@
-import { createContext, useEffect, useReducer } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 import AuthReducer from "./AuthReducer";
-import { onAuthStateChanged } from "firebase/auth"; // Import fungsi onAuthStateChanged
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { ColorRing } from "react-loader-spinner";
 
 const INITIAL_STATE = {
   currentUser: null,
-  loading: true, // Menambahkan status loading
+  loading: true,
 };
 
 export const AuthContext = createContext(INITIAL_STATE);
@@ -21,7 +21,6 @@ export const AuthContextProvider = ({ children }) => {
       } else {
         dispatch({ type: "LOGOUT" });
       }
-      dispatch({ type: "DONE_LOADING" });
     });
 
     return () => unsubscribe();
@@ -31,8 +30,12 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(state.currentUser));
   }, [state.currentUser]);
 
+  const registerUser = (user) => {
+    dispatch({ type: "REGISTER", payload: user });
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser: state.currentUser, dispatch }}>
+    <AuthContext.Provider value={{ currentUser: state.currentUser, dispatch, registerUser }}>
       {state.loading ? (
         <div className="flex justify-center items-center h-screen">
           <ColorRing
@@ -44,6 +47,7 @@ export const AuthContextProvider = ({ children }) => {
             wrapperClass="blocks-wrapper"
             colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
           />
+          <p>Loading...</p>
         </div>
       ) : (
         children

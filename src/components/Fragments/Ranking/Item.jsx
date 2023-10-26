@@ -18,15 +18,15 @@ export default function Item() {
           </h1>
         </div>
         <div className="flex gap-3 items-center	lg:gap-6 xl:gap-14">
-          <caption className="hidden lg:flex font-spaceMono text-base leading-6 text-green xl:text-base">
+          <p className="hidden lg:flex font-spaceMono text-base leading-6 text-green xl:text-base">
             +1.41%
-          </caption>
-          <caption className="hidden font-spaceMono text-sm leading-[110%] xl:text-base xl:flex">
+          </p>
+          <p className="hidden font-spaceMono text-sm leading-[110%] xl:text-base xl:flex">
             602
-          </caption>
-          <caption className="font-spaceMono text-sm leading-[110%] xl:text-base">
+          </p>
+          <p className="font-spaceMono text-sm leading-[110%] xl:text-base">
             12.4 ETH
-          </caption>
+          </p>
         </div>
       </div>
     </section>

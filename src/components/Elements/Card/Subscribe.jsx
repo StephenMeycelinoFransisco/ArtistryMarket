@@ -18,9 +18,9 @@ export default function Subscribe() {
               <h1 className="font-semibold text-3xl capitalize leading-8 xl:text-5xl">
                 Join Our Weekly Digest
               </h1>
-              <caption className="text-base leading-6 xl:text-2xl">
+              <p className="text-base leading-6 xl:text-2xl">
                 Get exclusive promotions & updates straight to your inbox.
-              </caption>
+              </p>
             </div>
             <div className="grid gap-4 lg:rounded-full xl:flex xl:bg-white xl:justify-between xl:rounded-3xl xl:h-[60px] ">
               <Input

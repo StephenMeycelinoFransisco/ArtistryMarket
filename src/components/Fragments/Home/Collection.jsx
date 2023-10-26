@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Collection() {
   return (
     <section className="grid gap-4">
-      <Link to={'/nft/:id'}>
+      <Link to={"/nft/:id"}>
         <img
           className="rounded-2xl hover:scale-95 duration-200"
           src="https://s3-alpha-sig.figma.com/img/a792/ddc0/c4e1193ffd08cf4918e6f696bbc8d8fe?Expires=1698624000&Signature=S7HEOUSm000KqkfQeK4RW~dSdSIsmtmPD-2uckpJQspYgiJkRiWf0cvWJzMfihu6R~dB5044aIvcdXnXPY38QsMRI9HhuOxKFYWiEvhZOUkrSDM2HDC54DyhPk7VS57VTqrPP8cLVCKeV5AE-5pWAhvQxmRBxmVfPwweyET4S4yR42L3Qp3YnSH-xA-bA37P6sAyD6K1-hb2ztlbGE-EY~1-P5RGPzOjX4u6yynTEHfrqgzr1jVSamLDyfUfKidOCShdE4hPqY6Le-ERyEmuy6bIZepOxIuUClvsCz6m-zFAdjCbIv8BhFOm6POECbm4PZWqZIsDHLbSBXX6Lpyufw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -38,7 +38,7 @@ export default function Collection() {
             src="https://s3-alpha-sig.figma.com/img/5abc/712e/766f194b46ede2b0f9edcb91b3031413?Expires=1698624000&Signature=iOrHvmLRzu3~tuDOdy~KN3AgfK8k5GPL6-LZD8ONuAumocRGU96QiKd0UX0HTIIW5bdubLC0HMp8Mqmm7CGqi4kFrT7pLb0uc4G~yMGJroZruWUdU4~cjUIy14e41Njfr4PqAPFZqLf2qYN5DoDRNY0n5o1bV2-xkRx2n55ZvZ6hsr6nzeCHC9jf97kes38mTk1Q3E439xP~dniwMHO9CtaBuCTmHHIoSvEe2mrp45oXw8CETd1vPCm4wfn1rsrNLQOV-f4BnMkzvyHjFKMMRi9f8IToR0678kpJGEwdMkPtDO2gkNKZfTjGWdHPtkhjykmt54jJKHVwotdJgoZzmQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
             alt=""
           />
-          <caption className="text-base leading-6">MrFox</caption>
+          <p className="text-base leading-6">MrFox</p>
         </div>
       </div>
     </section>

@@ -4,9 +4,10 @@ import Select from "../components/Elements/Input/Select";
 import Textarea from "../components/Elements/Input/Textarea";
 import Button from "../components/Elements/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { auth, db, storage } from "../firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { auth, storage } from "../firebase";
+import { serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import DesignDataService from "../api/firebase.design.service";
 
 export default function AddProduct() {
   const [data, setData] = useState({});
@@ -57,6 +58,7 @@ export default function AddProduct() {
     name: "",
     price: "",
     category: "",
+    tags: [],
     description: "",
   });
 
@@ -76,6 +78,13 @@ export default function AddProduct() {
 
       reader.readAsDataURL(file);
       setFile(file);
+    } else if (name === "tags") {
+      // Memisahkan tag kustom dengan tanda koma
+      const tagsArray = value.split(",").map((tag) => tag.trim());
+      setFormData({
+        ...formData,
+        [name]: tagsArray,
+      });
     } else {
       setFormData({
         ...formData,
@@ -90,18 +99,21 @@ export default function AddProduct() {
     try {
       if (auth.currentUser && data.img) {
         const userId = auth.currentUser.uid;
-        const productsRef = collection(db, "products");
 
-        const productData = {
-          ...formData,
+        const newDesign = {
+          name: formData.name,
+          price: formData.price,
+          category: formData.category,
+          tags: formData.tags,
+          description: formData.description,
           img: data.img,
-          timeStamp: serverTimestamp(),
           userId: userId,
+          timeStamp: serverTimestamp(),
         };
 
-        const docRef = await addDoc(productsRef, productData);
+        // Panggil method addDesign dari DesignDataService
+        await DesignDataService.addDesign(newDesign);
 
-        console.log("Document written with ID: ", docRef.id);
         alert("Data berhasil ditambahkan");
         navigate("/artist");
       } else {
@@ -169,11 +181,24 @@ export default function AddProduct() {
                   onChange={handleOnChange}
                   value={formData.category}
                   options={[
-                    { value: "animation", label: "Animation" },
-                    { value: "illustration", label: "Illustration" },
-                    { value: "digital", label: "Digital" },
-                    { value: "traditional", label: "Traditional" },
+                    { value: "art", label: "Art" },
+                    { value: "collectibles", label: "Collectibles" },
+                    { value: "music", label: "Music" },
+                    { value: "photography", label: "Photography" },
+                    { value: "video", label: "Video" },
+                    { value: "utility", label: "Utility" },
+                    { value: "sport", label: "Sport" },
+                    { value: "virtualWorlds", label: "Virtual Worlds" },
                   ]}
+                />
+
+                <Input
+                  type="text"
+                  name="tags"
+                  placeholder="Add Tags (comma-separated)"
+                  onChange={handleOnChange}
+                  value={formData.tags}
+                  className="rounded"
                 />
 
                 <Textarea

@@ -11,13 +11,13 @@ import { FiTwitter } from "react-icons/fi";
 import Button from "../../Elements/Button/Button";
 import Additional from "../../Elements/Additional/Additional";
 
-export default function Info() {
+export default function Info({artistName, bioUser}) {
   return (
     <>
       <section className="grid gap-8">
         <div className="grid grid-cols-1 gap-8 xl:flex xl:justify-between xl:w-full xl:items-center">
           <h1 className="text-xl font-semibold capitalize leading-6 lg:text-2xl xl:text-5xl	">
-            Animakid
+            {artistName}
           </h1>
           <div className="grid gap-8 lg:flex ">
             <Button className='bg-purple py-3 rounded-2xl' text="0xc0E3...B79C" icon={<BiCopy size={24} />} />
@@ -43,7 +43,7 @@ export default function Info() {
             Bio
           </h1>
           <p className="text-sm text-start leading-6 lg:text-base">
-            The internet's friendliest designer kid.
+            {bioUser ? bioUser : "Hi, The internet's friendliest designer kid."}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-2">

@@ -17,9 +17,9 @@ export default function Rankings() {
         <h1 className="text-2xl font-semibold leading-6 capitalize">
           Top Creator
         </h1>
-        <caption className="text-base leading-6">
+        <p className="text-base leading-6">
           Check out top ranking NFT artists on the NFT Marketplace.
-        </caption>
+        </p>
       </div>
       <div className="grid max-w-full">
         <Tab tabs={tabList} activeTab={activeTab} onTabClick={handleTabClick} />

@@ -40,9 +40,7 @@ export default function Clock() {
     <section className="rounded-2xl bg-black-secondary">
       <div className="p-8 grid gap-8">
         <div className="grid gap-3">
-          <caption className="font-spaceMono text-sm leading-3">
-            Auction end in:
-          </caption>
+          <p className="font-spaceMono text-sm leading-3">Auction end in:</p>
           <div className="grid grid-cols-3 gap-2">
             <div className="gridr">
               <div className="text-3xl font-spaceMono font-bold">
@@ -65,10 +63,7 @@ export default function Clock() {
           </div>
         </div>
         <div className="grid">
-          <Button
-            className="bg-purple py-3 rounded-2xl"
-            text="Place Bid"
-          />
+          <Button className="bg-purple py-3 rounded-2xl" text="Place Bid" />
         </div>
       </div>
     </section>
