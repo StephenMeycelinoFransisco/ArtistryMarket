@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../Elements/Button/Button";
 
-export default function Clock() {
+export default function Clock({onClick}) {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
     minutes: 0,
@@ -63,7 +63,7 @@ export default function Clock() {
           </div>
         </div>
         <div className="grid">
-          <Button className="bg-purple py-3 rounded-2xl" text="Place Bid" />
+          <Button className="bg-purple py-4 rounded-2xl" text="Place Bid" onClick={onClick} />
         </div>
       </div>
     </section>

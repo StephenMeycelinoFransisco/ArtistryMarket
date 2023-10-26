@@ -40,6 +40,7 @@ export default function Artistpage() {
 
       querySnapshot.forEach((doc) => {
         const designData = doc.data();
+        console.log(designData);
         if (designData.userId === userId) {
           designs.push({
             id: doc.id,
@@ -75,13 +76,14 @@ export default function Artistpage() {
             {activeTab === 0 ? (
               data.length > 0 ? (
                 data.map((item, index) => (
-                  <Link to={`/nft/${item.userId}`} key={index}>
+                  <Link to={`/nft/${item.userId}/${item.name}`} key={index}>
                     <Nft
                       className="bg-black-secondary"
                       title={item.name}
                       artist={currentUser.displayName}
                       price={item.price}
                       img={item.img}
+                      bidPrice={item.bidPrice}
                     />
                   </Link>
                 ))

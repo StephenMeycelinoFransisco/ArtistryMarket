@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { BsThreeDots } from "react-icons/bs";
 
-export default function Nft({ className, title, artist, price, img }) {
+export default function Nft({ className, title, artist, price, img, bidPrice }) {
   // const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   // const toggleDropdown = () => {
@@ -59,7 +59,7 @@ export default function Nft({ className, title, artist, price, img }) {
             <h1 className="text-gray text-sm leading-3 font-spaceMono">
               Highest Bid
             </h1>
-            <p className="text-sm leading-3 font-spaceMono">{price}</p>
+            <p className="text-sm leading-3 font-spaceMono text-end">{bidPrice}</p>
           </div>
         </div>
       </div>

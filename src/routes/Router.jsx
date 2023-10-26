@@ -4,12 +4,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Homepage from "../Pages/Homepage";
 import { AuthContext } from "../context/AuthContext";
 import Login from "../Pages/Login";
-import Artistpage from "../Pages/Artistpage";
 import MarketPlace from "../Pages/Marketplace";
 import Rankings from "../Pages/Rankings";
-import NftDetails from "../Pages/NftDetails";
 import AddProduct from "../pages/AddProduct";
 import Register from "../pages/Register";
+import NftDetails from "../pages/NftDetails";
+import Artistpage from "../pages/Artistpage";
 
 export default function Router() {
   const { currentUser } = useContext(AuthContext);
@@ -64,7 +64,7 @@ export default function Router() {
         }
       />
       <Route
-        path="nft/:id"
+        path="nft/:id/:name"
         element={
           <RequireAuth>
             <NftDetails />
