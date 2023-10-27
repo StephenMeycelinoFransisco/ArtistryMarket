@@ -40,7 +40,7 @@ export default function Router() {
         }
       />
       <Route
-        path="artist/add"
+        path="artist/:id/add"
         element={
           <RequireAuth>
             <AddProduct />

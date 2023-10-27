@@ -1,78 +1,58 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"; // Add useParams from react-router-dom
+import React, { useEffect, useState } from "react";
 import { AiOutlineGlobal } from "react-icons/ai";
 import Clock from "../components/Fragments/NFT/Clock";
 import MoreNft from "../components/Fragments/NFT/MoreNft";
 import DesignDataService from "../api/firebase.design.service";
-import { AuthContext } from "../context/AuthContext";
+import UserDataService from "../api/firebase.user.service";
+import { Link, useParams } from "react-router-dom";
 
 export default function NftDetails() {
   const { name } = useParams();
   const [data, setData] = useState([]);
   const [showBidPopup, setShowBidPopup] = useState(false);
   const [bidPrice, setBidPrice] = useState("");
-  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     getDesign();
-  }, [currentUser]);
+  }, []);
 
   const getDesign = async () => {
-    if (!currentUser) {
-      return;
-    }
-
     try {
-      const userId = currentUser.uid;
+      const dataDesign = await DesignDataService.getAllDesign();
+      const designData = dataDesign.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 
-      const querySnapshot = await DesignDataService.getAllDesign();
-      const designs = [];
+      // Ambil data pengguna untuk mencocokkan userId dengan username
+      const userData = await UserDataService.getAllUser();
+      const users = userData.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 
-      querySnapshot.forEach((doc) => {
-        const designData = doc.data();
-        if (designData.userId === userId) {
-          designs.push({
-            id: doc.id,
-            ...designData,
-          });
-        }
+      // Gabungkan data pengguna berdasarkan userId
+      const combinedData = designData.map((item) => {
+        const user = users.find((user) => user.uid === item.userId);
+        return { ...item, username: user ? user.username : "Unknown User" };
       });
 
-      setData(designs);
+      setData(combinedData);
     } catch (error) {
       console.error("Error fetching designs:", error);
     }
-  };
+  }
 
   const handleBidPrice = () => {
     setShowBidPopup(true);
-  };
+  }
 
   const handleCloseBidPopup = () => {
     setShowBidPopup(false);
   };
 
   const handleBidSubmit = async () => {
-    if (!currentUser) {
-      return;
-    }
-
     try {
-      const userId = currentUser.uid;
-      // Cari dokumen desain yang sesuai berdasarkan nama (name)
       const designToUpdate = data.find((item) => item.name === name);
 
       if (designToUpdate) {
-        // Tambahkan bidPrice ke dokumen desain
-        designToUpdate.bidPrice = parseFloat(bidPrice); // Anda dapat mengubah bidPrice sesuai kebutuhan
-
-        // Perbarui dokumen desain di Firestore
+        designToUpdate.bidPrice = parseFloat(bidPrice);
         await DesignDataService.updateDesign(designToUpdate.id, designToUpdate);
-
-        // Tutup popup bid
         setShowBidPopup(false);
-
-        // Kosongkan bidPrice
         setBidPrice("");
       }
     } catch (error) {
@@ -110,21 +90,23 @@ export default function NftDetails() {
                         <h1 className="font-spaceMono text-base leading-6 text-gray xl:text-2xl xl:font-bold xl:leading-8 xl:capitalize">
                           Created By
                         </h1>
-                        <Link to={"/artist/:id"}>
+                        <Link to={`/artist/${item.userId}`}>
                           <div className="flex items-center gap-3 hover:scale-95 duration-300">
                             <img
                               className="w-6 h-6 rounded-full"
                               src="https://s3-alpha-sig.figma.com/img/9acf/2677/568b38bc98ba36dbd43c768c40de6716?Expires=1698624000&Signature=B9QpGxaojZUWtHk5pfj31hEUmOEM3awGPCAE64pa-7tfBkVpVTKl2~xb~ODNTNRpNBetv1uHPobYlEP6~G9IrsbqDTHXQB8N~DGhSiN8IeiAjU-IfWKpvuYVH9vG4QC2EfSteEo6F8QEa0MNGHuOQuWtc0qIDT8Buk8r74~3IWR~cuJxknRSU2HGiJmaYRQ4PYApL5BkRwmHTfT7CtIcl2i0oPin~8gvNrCC29NLRIqSYlVb8poUOHl3mf0Ht4cj4AdQa3WjR0eU2Sl4YUshWs5eaAzpIlog9Y~RP9LtdPDLXoyoWfgb9-da9zrSJRaerA326LZYlZ3nLcPJ28NT4A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
                               alt=""
                             />
-                            <p className="text-base leading-6">
-                              {currentUser.displayName}
-                            </p>
+                            {item.username && (
+                              <p className="text-base leading-6">
+                                {item.username}
+                              </p>
+                            )}
                           </div>
                         </Link>
                       </div>
                       <div className="grid gap-2">
-                        <h1 className="text-gray font-spaceMono text-base leading-6 xl:text-2xl xl:font-bold xl:leading-8 xl:capitalize">
+                        <h1 className="text-gray font-spaceMono text-base leading-6  xl:text-2xl xl:font-bold xl:leading-8 xl:capitalize">
                           Description
                         </h1>
                         <p className="text-base leading-6 xl:text-2xl">
@@ -132,7 +114,7 @@ export default function NftDetails() {
                         </p>
                       </div>
                       <div className="grid gap-5">
-                        <h1 className="text-gray font-spaceMono text-base leading-6  xl:text-2xl xl:font-bold xl:leading-8 xl:capitalize">
+                        <h1 className="text-gray font-spaceMono text-base leading-6 xl:text-2xl xl:font-bold xl:leading-8 xl:capitalize">
                           Details
                         </h1>
                         <div className="flex items-center gap-3">
@@ -153,16 +135,14 @@ export default function NftDetails() {
                           Tags
                         </h1>
                         <div className="grid gap-5 mr-20 text-center xl:flex xl:gap-5 xl:mr-0">
-                          {item.tags &&
-                            Array.isArray(item.tags) &&
-                            item.tags.map((tag, index) => (
-                              <h1
-                                key={index}
-                                className="bg-black-secondary p-5 text-base leading-6 font-semibold rounded-full uppercase"
-                              >
-                                {tag}
-                              </h1>
-                            ))}
+                          {Array.isArray(item.tags) && item.tags.map((tag, index) => (
+                            <h1
+                              key={index}
+                              className="bg-black-secondary p-5 text-base leading-6 font-semibold rounded-full uppercase"
+                            >
+                              {tag}
+                            </h1>
+                          ))}
                         </div>
                       </div>
                     </div>

@@ -34,7 +34,7 @@ const UserCollectionRef = collection(db, 'users');
     return getDocs(UserCollectionRef)
   }
   // Get design by ID
-  getUser = () => {
+  getUser = (id) => {
     const userDoc = doc(db, 'users', id);
     return getDoc(userDoc)
   }
