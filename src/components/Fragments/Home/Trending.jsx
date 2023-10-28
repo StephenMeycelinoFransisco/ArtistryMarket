@@ -16,32 +16,34 @@ export default function Trending() {
     try {
       const dataDesign = await DesignDataService.getAllDesign();
       const designData = dataDesign.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
+  
       // Ambil semua data pengguna
       const userData = await UserDataService.getAllUser();
       const users = userData.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
+  
       // Loop through users and create random data
       const randomData = users.map((user) => {
         const userDesigns = designData.filter((design) => design.userId === user.uid);
-        const randomImage = userDesigns[Math.floor(Math.random() * userDesigns.length)].img;
-        const designTotal = userDesigns.length;
-
+        const randomIndex = Math.floor(Math.random() * userDesigns.length);
+        const randomDesign = userDesigns[randomIndex];
+  
         return {
           id: user.id,
-          img: randomImage,
-          total: designTotal, 
-          category: "Category", 
+          img: randomDesign.img,
+          total: userDesigns.length,
+          category: randomDesign.category, // Mengambil category dari design
+          name: randomDesign.name, // Mengambil name dari design
           username: user.username,
-          artistAvatar: user.avatar, 
+          artistAvatar: user.avatar,
         };
       });
-
+  
       setData(randomData);
     } catch (error) {
       console.error("Error fetching designs:", error);
     }
   }
+  
 
   return (
     <>
@@ -52,7 +54,7 @@ export default function Trending() {
         />
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3">
           {data.map((item) => (
-            <Link to={`/nft/${item.id}`} key={item.id}>
+            <Link to={`/nft/${item.id}/${item.name}`} key={item.id}>
               <Collection
                 designImage={item.img}
                 designTotal={item.total}

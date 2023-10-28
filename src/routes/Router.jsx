@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 
 import { Routes, Route, Navigate } from "react-router-dom";
-import Homepage from "../Pages/Homepage";
 import { AuthContext } from "../context/AuthContext";
 import Login from "../Pages/Login";
 import MarketPlace from "../Pages/Marketplace";
@@ -10,6 +9,7 @@ import AddProduct from "../pages/AddProduct";
 import Register from "../pages/Register";
 import NftDetails from "../pages/NftDetails";
 import Artistpage from "../pages/Artistpage";
+import Homepage from "../pages/Homepage";
 
 export default function Router() {
   const { currentUser } = useContext(AuthContext);
