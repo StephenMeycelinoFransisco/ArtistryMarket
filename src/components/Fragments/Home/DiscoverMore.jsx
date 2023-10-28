@@ -91,12 +91,9 @@ export default function DiscoverMore() {
         />
         <div className="grid grid-cols-1 gap-5 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3">
           {randomData.map((item) => (
-            <Link
-              to={`/nft/${item.userId}/${item.name}`}
-              key={item.id}
-              className={"bg-black-secondary"}
-            >
+            <Link to={`/nft/${item.userId}/${item.name}`} key={item.id}>
               <Nft
+                className={"bg-black-secondary"}
                 title={item.name}
                 artist={getArtistUsername(item.userId)}
                 price={item.price}

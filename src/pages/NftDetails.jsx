@@ -20,22 +20,23 @@ export default function NftDetails() {
     try {
       const dataDesign = await DesignDataService.getAllDesign();
       const designData = dataDesign.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
-      // Ambil data pengguna untuk mencocokkan userId dengan username
+  
+      // Ambil semua data pengguna
       const userData = await UserDataService.getAllUser();
       const users = userData.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
+  
       // Gabungkan data pengguna berdasarkan userId
       const combinedData = designData.map((item) => {
         const user = users.find((user) => user.uid === item.userId);
         return { ...item, username: user ? user.username : "Unknown User" };
       });
-
+  
       setData(combinedData);
     } catch (error) {
       console.error("Error fetching designs:", error);
     }
   }
+  
 
   const handleBidPrice = () => {
     setShowBidPopup(true);
