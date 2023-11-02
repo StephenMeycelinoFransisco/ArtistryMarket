@@ -5,6 +5,7 @@ import Design from "../../components/Elements/Cards/Design";
 import Cart from "../../components/Elements/Cards/Cart";
 import DesignDataService from "../../services/firebase.design";
 import UserDataService from "../../services/firebase.user";
+import CartDataService from "../../services/firebase.cart";
 import { formatTimestamp } from "../../Helper";
 
 const DetailDesign = () => {
@@ -74,13 +75,22 @@ const DetailDesign = () => {
         designData,
         quantity: cartQuantity,
       };
-      setData((prevData) => ({
-        ...prevData,
-        cartItems: [...prevData.cartItems, cartItem],
-        cartQuantity: 1,
-      }));
+
+      // Use the CartDataService to add the item to the cart
+      CartDataService.addToCart(cartItem)
+        .then(() => {
+          console.log("Item added to cart");
+          setData((prevData) => ({
+            ...prevData,
+            cartQuantity: 1,
+          }));
+        })
+        .catch((error) => {
+          console.error("Error adding item to cart: ", error);
+        });
     }
   };
+  
 
   const decrementQuantity = () => {
     setData((prevData) => ({

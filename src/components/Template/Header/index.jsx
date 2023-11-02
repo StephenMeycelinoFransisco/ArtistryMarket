@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 // SERVICES
 import { AuthContext } from "../../../context/AuthContext";
 import UserDataService from "../../../services/firebase.user";
+import CartDataService from "../../../services/firebase.cart";
 // ASSETS
 import noUser from "../../../assets/Images/nouser.jpg";
 // COMPONENTS
@@ -26,6 +27,7 @@ const Header = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isDropdownCartOpen, setDropdownCartOpen] = useState(false);
   const [userProfile, setUserProfile] = useState({});
+  const [cartItems, setCartItems] = useState([]);
 
   const toggleDropdownCart = () => {
     setDropdownCartOpen(!isDropdownCartOpen);
@@ -53,6 +55,24 @@ const Header = () => {
         })
         .catch((error) => {
           console.error("Error fetching user profile:", error);
+        });
+    }
+  }, [currentUser]);
+
+  // Fetch cart items from Firestore
+  useEffect(() => {
+    // Fetch cart items when the user is logged in
+    if (currentUser) {
+      CartDataService.getAllCartItems()
+        .then((querySnapshot) => {
+          const items = [];
+          querySnapshot.forEach((doc) => {
+            items.push({ id: doc.id, ...doc.data() });
+          });
+          setCartItems(items);
+        })
+        .catch((error) => {
+          console.error("Error fetching cart items:", error);
         });
     }
   }, [currentUser]);
@@ -134,7 +154,7 @@ const Header = () => {
                       <AiOutlineShoppingCart size={24} />
                     </span>
                     <span className="absolute top-4 -right-2 h-4 w-4 bg-purple text-white text-xs flex items-center justify-center rounded-full">
-                      0
+                      {cartItems.length}
                     </span>
                   </div>
                 </div>
@@ -149,15 +169,18 @@ const Header = () => {
 
               {isDropdownCartOpen && (
                 <div className="absolute top-10 right-0 bg-black-secondary border border-gray-300 rounded-md w-[17.5rem] h-[17rem] mx-2 my-6 z-10 p-2">
-                  <CartItem
-                    decrementQuantity={decrementQuantity}
-                    incrementQuantity={incrementQuantity}
-                    handleQuantityChange={handleQuantityChange}
-                    value={cartQuantity}
-                    avatar={noUser}
-                    name={"Proposition Art"}
-                    price={"20000"}
-                  />
+                  {cartItems.map((item) => (
+                    <CartItem
+                      key={item.id}
+                      decrementQuantity={decrementQuantity}
+                      incrementQuantity={incrementQuantity}
+                      handleQuantityChange={handleQuantityChange}
+                      value={cartQuantity}
+                      avatar={item.designData.file}
+                      name={item.designData.name}
+                      price={item.designData.price}
+                    />
+                  ))}
                 </div>
               )}
 
