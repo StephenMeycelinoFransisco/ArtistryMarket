@@ -16,11 +16,13 @@ import { AuthContext } from "../../../context/AuthContext";
 import UserDataService from "../../../services/firebase.user";
 // ASSETS
 import noUser from "../../../assets/Images/nouser.jpg";
+// COMPONENTS
+import CartItem from "../../Elements/CartItem";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const { currentUser, logout } = useContext(AuthContext);
-
+  const [cartQuantity, setCartQuantity] = useState(1);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isDropdownCartOpen, setDropdownCartOpen] = useState(false);
   const [userProfile, setUserProfile] = useState({});
@@ -54,6 +56,23 @@ const Header = () => {
         });
     }
   }, [currentUser]);
+
+  const decrementQuantity = () => {
+    if (cartQuantity > 1) {
+      setCartQuantity(cartQuantity - 1);
+    }
+  };
+
+  const incrementQuantity = () => {
+    setCartQuantity(cartQuantity + 1);
+  };
+
+  const handleQuantityChange = (event) => {
+    const newValue = parseInt(event.target.value);
+    if (!isNaN(newValue) && newValue >= 1) {
+      setCartQuantity(newValue);
+    }
+  };
 
   return (
     <nav className="bg-black px-[1.875rem] py-[0.938rem] md:px-[3.125rem] flex flex-wrap items-center justify-between">
@@ -129,7 +148,17 @@ const Header = () => {
               )}
 
               {isDropdownCartOpen && (
-                <div className="absolute top-10 right-0 bg-black-secondary border border-gray-300 rounded-md w-[17rem] h-[17rem] mx-2 my-6 z-10"></div>
+                <div className="absolute top-10 right-0 bg-black-secondary border border-gray-300 rounded-md w-[17.5rem] h-[17rem] mx-2 my-6 z-10 p-2">
+                  <CartItem
+                    decrementQuantity={decrementQuantity}
+                    incrementQuantity={incrementQuantity}
+                    handleQuantityChange={handleQuantityChange}
+                    value={cartQuantity}
+                    avatar={noUser}
+                    name={"Proposition Art"}
+                    price={"20000"}
+                  />
+                </div>
               )}
 
               {isDropdownOpen && (
