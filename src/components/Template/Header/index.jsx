@@ -168,7 +168,7 @@ const Header = () => {
               )}
 
               {isDropdownCartOpen && (
-                <div className="absolute top-10 right-0 bg-black-secondary border border-gray-300 rounded-md w-[17.5rem] h-[17rem] mx-2 my-6 z-10 p-2">
+                <div className="absolute top-10 right-0 bg-black-secondary border border-gray-300 rounded-md w-[17.5rem] h-fit mx-2 my-6 z-10 p-2">
                   {cartItems.map((item) => (
                     <CartItem
                       key={item.id}
