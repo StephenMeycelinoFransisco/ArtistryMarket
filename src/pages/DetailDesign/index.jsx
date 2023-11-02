@@ -18,6 +18,7 @@ const DetailDesign = () => {
     nft: [],
     cartItems: [],
   });
+  
 
   useEffect(() => {
     fetchData(id);
@@ -90,7 +91,6 @@ const DetailDesign = () => {
         });
     }
   };
-  
 
   const decrementQuantity = () => {
     setData((prevData) => ({

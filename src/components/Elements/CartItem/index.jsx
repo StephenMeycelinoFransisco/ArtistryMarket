@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
-export default function CartItem({decrementQuantity, handleQuantityChange, incrementQuantity, value, name, price, avatar}) {
+export default function CartItem({name, price, avatar, qty}) {
   return (
     <section className="bg-black py-1 px-2 min-h-14 rounded-2xl">
       <div className="flex items-center justify-between">
@@ -12,25 +12,8 @@ export default function CartItem({decrementQuantity, handleQuantityChange, incre
             <p className="text-gray">Rp. {price}</p>
           </div>
         </div>
-        <div className="flex rounded border">
-          <button
-            onClick={decrementQuantity}
-            className="text-white text-sm"
-          >
-            <AiOutlineMinus />
-          </button>
-          <input
-            type="number"
-            value={value}
-            onChange={handleQuantityChange}
-            className="text-gray text-sm mx-1 w-8"
-          />
-          <button
-            onClick={incrementQuantity}
-            className="text-white text-sm "
-          >
-            <AiOutlinePlus />
-          </button>
+        <div className="flex">
+          <p className="text-sm text-gray">QTY: {qty}</p>
         </div>
       </div>
     </section>

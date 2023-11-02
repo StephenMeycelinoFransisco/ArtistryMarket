@@ -11,6 +11,8 @@ import DetailDesign from "../pages/DetailDesign";
 import Marketplace from "../pages/Marketplace";
 import TopCreator from "../pages/TopCreator";
 import ChatOpenAI from "../pages/Chat";
+import Checkout from "../pages/Checkout";
+import { CartProvider } from "../context/CartContext";
 
 export default function Router() {
   const { currentUser } = useContext(AuthContext);
@@ -19,10 +21,9 @@ export default function Router() {
     return currentUser ? children : <Navigate to="/login" />;
   };
 
-  console.log(currentUser);
-
   return (
-    <Routes>
+    <CartProvider >
+      <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
       <Route
@@ -73,8 +74,17 @@ export default function Router() {
           </RequireAuth>
         }
       />
+      <Route
+        path="/checkout/:id"
+        element={
+          <RequireAuth>
+            <Checkout />
+          </RequireAuth>
+        }
+      />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
     </Routes>
+    </CartProvider>
   );
 }

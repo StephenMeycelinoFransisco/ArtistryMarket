@@ -42,7 +42,7 @@ const UserCollectionRef = collection(db, 'users');
   }
 
    // Mengikuti pengguna
-   followUser = (followerId, followingId) => {
+   followUser = (followingId, followerId) => {
     const followerDoc = doc(db, "users", followerId);
     const followingDoc = doc(db, "users", followingId);
 
@@ -58,7 +58,7 @@ const UserCollectionRef = collection(db, 'users');
   }
 
   // Berhenti mengikuti pengguna
-  unfollowUser = (followerId, followingId) => {
+  unfollowUser = (followingId, followerId) => {
     const followerDoc = doc(db, "users", followerId);
     const followingDoc = doc(db, "users", followingId);
 

@@ -2,11 +2,14 @@ import React from "react";
 import Routes from "../routes/Router";
 import Header from "../components/Template/Header";
 import Footer from "../components/Template/Footer";
+import { CartProvider } from "../context/CartContext";
 
 export default function Layout() {
   return (
     <>
-      <Header />
+      <CartProvider>
+        <Header />
+      </CartProvider>
       <main>
         <Routes />
       </main>
