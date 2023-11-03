@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Space+Mono:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::after *::before {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #2b2b2b !important;
+	line-height: 140%;
+	color: #fff;
+	font-family: "Work Sans", sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 140%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+	color: #fff;
+	font-family: "Work Sans", sans-serif;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+	text-transform: capitalize ;
+	font-weight: 600 ;
+  }
+  
+  p {
+	text-align: start;
+	font-size: 12px;
+	font-weight: 400 ;
+	line-height: 110% ; /* 13.2px */
+  }
+  
+  a {
+	text-decoration: none;
+	color: unset;
+  }
+  
+  a:hover {
+	color: unset;
+  }
+  
+  ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  }
+  
+  li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  }
+
+  input:focus {
+	outline: none;
+	list-style: none;
+  }
