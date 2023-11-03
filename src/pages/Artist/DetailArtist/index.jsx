@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // ASSETS
-import noUser from "../../../assets/Images/nouser.jpg";
+import nouser from "../../../assets/Images/nouser.jpg";
 // CONTEXT
 import { AuthContext } from "../../../context/AuthContext";
 // FIREBASE STORAGE
@@ -69,7 +69,7 @@ export default function DetailArtist() {
             <hr className="text-gray" />
             <div className="grid gap-3">
               <img
-                src={userData.avatar || noUser}
+                src={userData.avatar || nouser}
                 alt="avatar user"
                 className="rounded-full w-[232px] h-[232px] object-cover object-center  mx-auto"
               />

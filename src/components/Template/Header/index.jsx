@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import UserDataService from "../../../services/firebase.user";
 import { CartContext } from "../../../context/CartContext";
-import noUser from "../../../assets/Images/nouser.jpg";
+import nouser from "../../../assets/Images/nouser.jpg";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -100,7 +100,7 @@ const Header = () => {
                     className="ml-4 lg:ml-0 flex gap-5 items-center"
                   >
                     <img
-                      src={userProfile?.avatar || currentUser?.photoURL ? currentUser?.photoURL || userProfile?.avatar : noUser}
+                      src={userProfile?.avatar || currentUser?.photoURL ? currentUser?.photoURL || userProfile?.avatar : nouser}
                       alt="User Avatar"
                       className="rounded-full w-8 h-8 cursor-pointer object-cover object-center"
                     />
