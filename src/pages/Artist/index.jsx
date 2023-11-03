@@ -9,7 +9,7 @@ import Popup from "../../components/Elements/Popup";
 import Design from "../../components/Elements/Cards/Design";
 // ASSETS
 import bg from "../../assets/Images/auth.png";
-import nouser from "../../assets/Images/noUser.jpg";
+import nouser from "../../assets/Images/nouser.jpg";
 // CONTEXT
 import { AuthContext } from "../../context/AuthContext";
 // SERVICES
