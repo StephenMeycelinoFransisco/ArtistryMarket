@@ -13,7 +13,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import noUser from "../../../assets/Images/nouser.jpg";
+import nouser from "../../../assets/Images/nouser.jpg";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
@@ -133,7 +133,7 @@ export default function Register() {
             <div className="grid gap-4">
               <div className="grid">
                 <img
-                  src={avatar || noUser}
+                  src={avatar || nouser}
                   alt=""
                   className="rounded-full lg:w-56 lg:mx-auto object-cover object-center"
                 />
