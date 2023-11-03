@@ -59,7 +59,7 @@ export default function Register() {
             className="h-[232px] w-full object-cover object-center lg:h-full"
           />
         </div>
-        <div className="grid gap-8 my-8 max-w-[17.5rem] mx-auto lg:max-w-sm lg:mx-0 xl:my-24 lg:items-center lg:my-44 lg:gap-0">
+        <div className="grid gap-8 my-8 max-w-[17.5rem] mx-auto lg:max-w-sm lg:mx-0 xl:my-24 lg:items-center lg:my-44 lg:gap-5">
           <div className="grid gap-5">
             <h1 className="text-4xl leading-10 lg:text-5xl lg:leading-6">
               Login Account
@@ -104,6 +104,9 @@ export default function Register() {
               >
                 <FcGoogle /> Google
               </button>
+            </div>
+            <div className="flex justify-center gap-3 text-center text-sm">
+              Don't have an account? <a href="/register" className="text-gray">Register</a>
             </div>
           </form>
         </div>

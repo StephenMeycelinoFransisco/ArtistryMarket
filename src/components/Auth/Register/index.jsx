@@ -47,26 +47,32 @@ export default function Register() {
 
   const signIn = async () => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-  
-      await updateProfile(user, { displayName: username, photoURL: avatar });
-  
-      const userId = user.uid;
-      const userDocRef = doc(db, "users", userId);
-  
-      await setDoc(userDocRef, {
-        uid: userId,
-        username,
-        avatar,
-      });
-  
-      dispatch({ type: "REGISTER", payload: user });
-      navigate(`/artist/${userId}`);
+      if (validateInputs()) {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        const user = userCredential.user;
+
+        await updateProfile(user, { displayName: username, photoURL: avatar });
+
+        const userId = user.uid;
+        const userDocRef = doc(db, "users", userId);
+
+        await setDoc(userDocRef, {
+          uid: userId,
+          username,
+          avatar,
+        });
+
+        dispatch({ type: "REGISTER", payload: user });
+        navigate(`/artist/${userId}`);
+      }
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-  
+
       if (errorCode === "auth/weak-password") {
         setError("The password is too weak.");
       } else if (errorCode === "auth/email-already-in-use") {
@@ -77,7 +83,6 @@ export default function Register() {
       console.error("Error creating user: ", error);
     }
   };
-  
 
   const signInWithGoogle = async () => {
     try {
@@ -86,6 +91,21 @@ export default function Register() {
     } catch (e) {
       console.log("Error Message", e);
     }
+  };
+
+  const validateInputs = () => {
+    if (!username || !email || !password) {
+      setError("Please fill in all the fields.");
+      return false;
+    }
+
+    if (password.length < 6) {
+      setError("Password should be at least 6 characters long.");
+      return false;
+    }
+
+    setError("");
+    return true;
   };
 
   return (
@@ -109,6 +129,7 @@ export default function Register() {
             </p>
           </div>
           <form className="grid gap-8">
+            {error && <div className="text-white text-center bg-red/50 rounded p-2">{error}</div>}
             <div className="grid gap-4">
               <div className="grid">
                 <img
@@ -164,6 +185,12 @@ export default function Register() {
               >
                 <FcGoogle /> Google
               </button>
+            </div>
+            <div className="flex justify-center gap-3 text-center text-sm">
+              Do you have an account?{" "}
+              <a href="/login" className="text-gray">
+                Login
+              </a>
             </div>
           </form>
         </div>

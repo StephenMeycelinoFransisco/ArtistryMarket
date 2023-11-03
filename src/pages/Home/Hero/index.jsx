@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 // ASSETS
 import avatar from "../../../assets/Images/noUser.jpg";
 // COMPONENTS
@@ -14,6 +14,7 @@ import { AuthContext } from "../../../context/AuthContext";
 export default function Hero({ value1, value2, value3 }) {
   const [nft, setNft] = useState([]);
   const [randomNft, setRandomNft] = useState(null);
+  const { id } = useParams()
 
   const { currentUser } = useContext(AuthContext);
 

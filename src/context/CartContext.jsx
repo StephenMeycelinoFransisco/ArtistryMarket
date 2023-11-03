@@ -29,7 +29,7 @@ const CartProvider = ({ children }) => {
     };
     
     fetchCartItems();    
-  }, [cartItems]);
+  }, []); // Kosongkan dependensi untuk menghindari perubahan yang terus menerus
 
   const addToCart = async (item) => {
     try {

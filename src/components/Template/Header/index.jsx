@@ -100,7 +100,7 @@ const Header = () => {
                     className="ml-4 lg:ml-0 flex gap-5 items-center"
                   >
                     <img
-                      src={userProfile.avatar || noUser}
+                      src={userProfile?.avatar || currentUser?.photoURL ? currentUser?.photoURL || userProfile?.avatar : noUser}
                       alt="User Avatar"
                       className="rounded-full w-8 h-8 cursor-pointer"
                     />

@@ -5,11 +5,11 @@ import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
-  authDomain: "artistry-1403e.firebaseapp.com",
-  projectId: "artistry-1403e",
-  storageBucket: "artistry-1403e.appspot.com",
-  messagingSenderId: "169578972472",
-  appId: "1:169578972472:web:9c87c09129b83cd1aaadcd"
+  authDomain: "artistry-marketplace.firebaseapp.com",
+  projectId: "artistry-marketplace",
+  storageBucket: "artistry-marketplace.appspot.com",
+  messagingSenderId: "374040788225",
+  appId: "1:374040788225:web:cb7ad1119521cd8e632f00"
 };
 
 const app = initializeApp(firebaseConfig);

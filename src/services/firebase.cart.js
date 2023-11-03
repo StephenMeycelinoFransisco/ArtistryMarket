@@ -16,11 +16,13 @@ class CartDataService {
     return addDoc(CartCollectionRef, cartItem);
   }
 
-  // Update item in cart
-  updateCartItem = (cartItemId, updatedCartItem) => {
+  // Update item quantity in cart
+  updateCartItemQuantity = (cartItemId, newQuantity) => {
+    // Assuming you have an "quantity" field in your cart items
     const cartItemDoc = doc(db, "cart", cartItemId);
-    return updateDoc(cartItemDoc, updatedCartItem);
+    return updateDoc(cartItemDoc, { quantity: newQuantity });
   }
+
 
   // Delete item from cart
   deleteCartItem = (cartItemId) => {
