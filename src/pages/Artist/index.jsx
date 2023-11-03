@@ -27,7 +27,7 @@ export default function Artist() {
   const [data, setData] = useState({
     id: "",
     username: "",
-    avatar: avatar,
+    avatar: avatar || nouser,
   });
   const { id } = useParams();
 
