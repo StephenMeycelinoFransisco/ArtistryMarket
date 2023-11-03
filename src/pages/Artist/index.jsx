@@ -59,7 +59,7 @@ export default function Artist() {
               username: userData.username,
               avatar: userData.avatar,
               bio: userData.bio,
-              followers: [...userData.followers, currentUser.uid],
+              followers: userData.followers || [],
             }));
 
             // Jika currentUser adalah pemilik profil yang sedang dilihat
