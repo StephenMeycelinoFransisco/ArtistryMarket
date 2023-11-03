@@ -15,7 +15,7 @@ export default function DetailArtist() {
   const navigate = useNavigate();
 
   const [userData, setUserData] = useState({
-    avatar: currentUser.photoURL || nouser,
+    avatar: currentUser.photoURL,
     username: currentUser.displayName,
     email: currentUser.email,
     bio: "",
