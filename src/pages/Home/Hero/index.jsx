@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 // ASSETS
-import avatar from "../../../assets/Images/noUser.jpg";
+import avatar from "../../../assets/Images/nouser.jpg";
 // COMPONENTS
 import HeroCart from "../../../components/Elements/Cards/Hero";
 import Stats from "../../../components/Elements/Stats";

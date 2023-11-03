@@ -6,7 +6,7 @@ import Creator from "../Home/Creator";
 // SERVICES
 import UserDataService from "../../services/firebase.user";
 // ASSETS
-import avatar from "../../assets/Images/noUser.jpg";
+import avatar from "../../assets/Images/nouser.jpg";
 
 export default function TopCreator() {
   const [users, setUsers] = useState([]);

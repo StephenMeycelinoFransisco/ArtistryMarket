@@ -8,7 +8,7 @@ import UserDataService from "../../services/firebase.user";
 // COMPONENTS
 import Design from "../../components/Elements/Cards/Design";
 // ASSETS
-import avatar from "../../assets/Images/noUser.jpg";
+import avatar from "../../assets/Images/nouser.jpg";
 
 // COMPONENT SEARCHBAR
 function SearchBar({ onSearch }) {
