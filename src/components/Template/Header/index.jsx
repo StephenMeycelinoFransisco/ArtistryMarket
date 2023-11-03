@@ -102,7 +102,7 @@ const Header = () => {
                     <img
                       src={userProfile?.avatar || currentUser?.photoURL ? currentUser?.photoURL || userProfile?.avatar : noUser}
                       alt="User Avatar"
-                      className="rounded-full w-8 h-8 cursor-pointer"
+                      className="rounded-full w-8 h-8 cursor-pointer object-cover object-center"
                     />
                   </div>
                   <Link to={`/checkout/${currentUser.uid}`}>

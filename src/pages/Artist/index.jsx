@@ -59,14 +59,14 @@ export default function Artist() {
               username: userData.username,
               avatar: userData.avatar,
               bio: userData.bio,
-              followers: userData.followers || [],
+              followers: [...userData.followers, currentUser.uid],
             }));
 
             // Jika currentUser adalah pemilik profil yang sedang dilihat
             // Set value3 dengan jumlah pengikut dari data pengguna
             if (currentUser.uid === id) {
               setIsFollowing(userData.followers.length > 0);
-              setValue3(userData.followers || 0);
+              setValue3(userData.followers.length || 0);
             }
           }
         })
@@ -188,7 +188,7 @@ export default function Artist() {
             username={data.username}
             value1={userNFTCount ? userNFTCount : 0}
             value2={data.value2 ? data.value2 : 0}
-            value3={isFollowing ? value3 : (data.following ? data.following.length : 0)}
+            value3={isFollowing ? value3 : (data.followers ? data.followers.length : 0)}
             bio={data.bio ? data.bio : "No bio available"}
             isCurrentUserProfile={true}
             openPopup={openPopup}

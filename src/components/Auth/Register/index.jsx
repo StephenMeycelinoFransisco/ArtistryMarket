@@ -135,7 +135,7 @@ export default function Register() {
                 <img
                   src={avatar || noUser}
                   alt=""
-                  className="rounded-full lg:w-56 lg:mx-auto"
+                  className="rounded-full lg:w-56 lg:mx-auto object-cover object-center"
                 />
               </div>
               <div className="grid bg-transparent items-center px-5 py-4 border rounded">

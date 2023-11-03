@@ -62,7 +62,7 @@ function ChatOpenAI() {
             {result.length > 0 &&
               result.map((item, index) => (
                 <div key={index} className="flex justify-end mt-2 mr-2">
-                  <div className="bg-green-500 rounded-lg px-4 py-2 text-black max-w-sm">
+                  <div className="bg-green rounded-lg px-4 py-2 text-black-secondary max-w-sm">
                     {item.message ? (
                       item.message.content
                     ) : (

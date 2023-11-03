@@ -71,7 +71,7 @@ export default function DetailArtist() {
               <img
                 src={userData.avatar || noUser}
                 alt="avatar user"
-                className="rounded-full w-full h-full mx-auto"
+                className="rounded-full w-[232px] h-[232px] object-cover object-center  mx-auto"
               />
               <p className="text-center text-gray font-spaceMono text-sm">
                 JPG or PNG no larger than 10MB

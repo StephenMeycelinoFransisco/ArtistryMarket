@@ -36,6 +36,10 @@ export default function Register() {
 
   const signInWithEmailPassword = async () => {
     try {
+      if (!email || !password) {
+        setError("Please input your email and password.");
+        return;
+      }
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
@@ -70,6 +74,7 @@ export default function Register() {
             </p>
           </div>
           <form className="grid gap-8">
+          {error && <div className="text-white text-center bg-red/50 rounded p-2">{error}</div>}
             <div className="grid gap-8">
               <div className="flex gap-3 bg-white items-center px-5 py-4 rounded-full text-black-secondary">
                 <AiOutlineMail color="#2B2B2B" size={20} />
@@ -88,7 +93,7 @@ export default function Register() {
                 />
               </div>
             </div>
-            {error && <p className="text-red-500">{error}</p>}
+            
             <div className="grid gap-5">
               <button
                 onClick={signInWithEmailPassword}

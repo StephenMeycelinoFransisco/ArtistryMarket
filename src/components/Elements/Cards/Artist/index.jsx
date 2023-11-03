@@ -10,7 +10,7 @@ export default function Artist({artist, avatar, number}) {
           </p>
         </span>
         <img
-          className="w-16 h-16 rounded-full xl:mx-auto xl:w-32 xl:h-32 "
+          className="w-16 h-16 rounded-full xl:mx-auto xl:w-32 xl:h-32 object-cover object-center"
           alt={artist}
           src={avatar}
         />

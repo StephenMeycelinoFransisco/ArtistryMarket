@@ -44,7 +44,7 @@ export default function Design({
               {name}
             </h1>
             <div className="flex gap-3 items-center">
-              <img className="w-6 h-6 rounded-full" alt="" src={avatar} />
+              <img className="w-6 h-6 rounded-full object-cover object-center" alt="" src={avatar} />
               <p className="font-spaceMono text-base leading-6">{artist}</p>
             </div>
           </div>

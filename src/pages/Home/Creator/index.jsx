@@ -13,7 +13,7 @@ export default function Creator({ number, avatar, artist }) {
             </span>
             <div className="items-center flex gap-5 xl:grid">
               <img
-                className="w-16 h-16 rounded-full xl:mx-auto xl:w-32 xl:h-32 "
+                className="w-16 h-16 rounded-full object-cover object-center xl:mx-auto xl:w-32 xl:h-32 "
                 alt={artist}
                 src={avatar}
               />
