@@ -9,7 +9,7 @@ import Popup from "../../components/Elements/Popup";
 import Design from "../../components/Elements/Cards/Design";
 // ASSETS
 import bg from "../../assets/Images/auth.png";
-import avatar from "../../assets/Images/noUser.jpg";
+import nouser from "../../assets/Images/nouser.jpg";
 // CONTEXT
 import { AuthContext } from "../../context/AuthContext";
 // SERVICES
@@ -176,9 +176,9 @@ export default function Artist() {
       )}
       <section>
         {currentUser && currentUser.uid === id ? (
-          <Profile cover={bg} profile={data.avatar ? data.avatar : avatar} />
+          <Profile cover={bg} profile={data.avatar ? data.avatar : nouser} />
         ) : (
-          <Profile cover={bg} profile={data.avatar ? data.avatar : avatar} />
+          <Profile cover={bg} profile={data.avatar ? data.avatar : nouser} />
         )}
 
         {currentUser && currentUser.uid === id ? (
